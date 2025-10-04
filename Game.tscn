@@ -1,0 +1,240 @@
+[gd_scene load_steps=20 format=3 uid="uid://wv55ssu6ivls"]
+
+[ext_resource type="Script" uid="uid://be34ymwo5ydau" path="res://game.gd" id="1_xkndl"]
+[ext_resource type="Texture2D" uid="uid://bmh712irsy8ls" path="res://assets/Sprite-0001.png" id="2_2vekm"]
+[ext_resource type="Texture2D" uid="uid://k7ofau13er17" path="res://addons/kenney_prototype_textures/dark/texture_12.png" id="3_yx171"]
+[ext_resource type="Texture2D" uid="uid://201jx0d1bl7h" path="res://addons/kenney_prototype_textures/orange/texture_08.png" id="4_yhmtn"]
+[ext_resource type="Texture2D" uid="uid://t6cstdixd2bg" path="res://assets/inventory.png" id="5_gwjdr"]
+[ext_resource type="Texture2D" uid="uid://divokkgqm3wqu" path="res://assets/collection.png" id="6_lvtmh"]
+[ext_resource type="Texture2D" uid="uid://cgiyr5qotp53s" path="res://addons/kenney_prototype_textures/light/texture_10.png" id="7_yyih5"]
+[ext_resource type="Texture2D" uid="uid://dv0tqgxi6tkkx" path="res://addons/kenney_prototype_textures/light/texture_12.png" id="8_qjyg3"]
+[ext_resource type="Texture2D" uid="uid://c3aumwy0fj7gd" path="res://assets/image_2025-10-04_05-09-59.png" id="9_elkpi"]
+[ext_resource type="Script" uid="uid://cumasmawgccyt" path="res://scripts/character.gd" id="9_yx171"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0yprl"]
+diffuse_texture = ExtResource("2_2vekm")
+texture_filter = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wuoie"]
+resource_local_to_scene = true
+diffuse_texture = ExtResource("5_gwjdr")
+texture_filter = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_bvhbk"]
+diffuse_texture = ExtResource("6_lvtmh")
+texture_filter = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_cpsxm"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_hmewc"]
+diffuse_texture = ExtResource("9_elkpi")
+texture_filter = 1
+
+[sub_resource type="Animation" id="Animation_2vekm"]
+resource_name = "new_guy_coming"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.86, 1.1, 1.2666667, 1.37, 1.62),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(957.99994, 434), Vector2(840, 334), Vector2(750, 359), Vector2(565, 291.00003), Vector2(369, 292.00003), Vector2(280, 261), Vector2(280, 261), Vector2(280, 261)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.43, 0.85, 0.86, 1.1, 1.28, 1.37, 1.62, 1.81, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.06843844, -0.051200844, 0.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_yx171"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(957.99994, 434)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_yhmtn"]
+resource_name = "guy_leave"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.21, 0.64, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(280, 261), Vector2(348, 292.00003), Vector2(122.99999, 177), Vector2(-218, 113.000015)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.21, 0.64, 1),
+"transitions": PackedFloat32Array(1, 1, 0.18946461, 1),
+"update": 0,
+"values": [0.0, 0.15898715, -0.9552464, -1.3416384]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yx171"]
+_data = {
+&"RESET": SubResource("Animation_yx171"),
+&"guy_leave": SubResource("Animation_yhmtn"),
+&"new_guy_coming": SubResource("Animation_2vekm")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_xkndl")
+
+[node name="Background" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(639.99994, 359.99997)
+scale = Vector2(5, 5)
+texture = SubResource("CanvasTexture_0yprl")
+
+[node name="lombard" type="Node" parent="."]
+
+[node name="Table" type="Node" parent="lombard"]
+
+[node name="Table_PC" type="Sprite2D" parent="lombard/Table"]
+z_index = 1
+position = Vector2(957.5, 305)
+scale = Vector2(0.40527356, 0.29296872)
+texture = ExtResource("3_yx171")
+
+[node name="Table_BG" type="Sprite2D" parent="lombard/Table"]
+position = Vector2(640, 562.5)
+scale = Vector2(1.2499999, 0.30761722)
+texture = ExtResource("4_yhmtn")
+
+[node name="InventoryButton" type="TextureButton" parent="lombard/Table"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = -100.0
+offset_right = 68.0
+offset_bottom = -83.0
+grow_vertical = 0
+scale = Vector2(5, 5)
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture_normal = SubResource("CanvasTexture_wuoie")
+
+[node name="CollectionButton2" type="TextureButton" parent="lombard/Table"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 295.00003
+offset_top = -99.99994
+offset_right = 349.00003
+offset_bottom = -82.99994
+grow_vertical = 0
+scale = Vector2(5, 5)
+texture_normal = SubResource("CanvasTexture_bvhbk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton3" type="TextureButton" parent="lombard/Table"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -384.99994
+offset_top = -100.0
+offset_right = -310.99994
+offset_bottom = -83.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(5, 5)
+texture_normal = SubResource("CanvasTexture_cpsxm")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Background" type="Node" parent="lombard"]
+
+[node name="Sprite2D" type="Sprite2D" parent="lombard/Background"]
+z_index = -1
+position = Vector2(960, 327.50003)
+scale = Vector2(0.6249999, 0.63964844)
+texture = ExtResource("7_yyih5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="lombard/Background"]
+z_index = -1
+position = Vector2(320.5, 327.50003)
+scale = Vector2(0.62402344, 0.63964844)
+texture = ExtResource("8_qjyg3")
+
+[node name="Character" type="Node" parent="lombard"]
+script = ExtResource("9_yx171")
+visual_node_path = NodePath(".")
+animation_player_path = NodePath("Sprite2D/AnimationPlayer")
+
+[node name="Sprite2D" type="Sprite2D" parent="lombard/Character"]
+z_index = -1
+position = Vector2(957.99994, 434)
+scale = Vector2(5, 5)
+texture = SubResource("CanvasTexture_hmewc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="lombard/Character/Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_yx171")
+}
+
+[node name="DEV" type="Node" parent="."]
+
+[node name="Panel" type="Panel" parent="DEV"]
+z_index = 4096
+offset_left = 1080.0
+offset_top = 2.0
+offset_right = 1280.0
+offset_bottom = 202.0
+
+[node name="Button" type="Button" parent="DEV/Panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 9.0
+offset_right = 67.0
+offset_bottom = 40.0
+text = "New Guy
+"
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="button_down" from="DEV/Panel/Button" to="." method="_on_button_button_down"]
