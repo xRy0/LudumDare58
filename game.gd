@@ -3,7 +3,7 @@ extends Node2D
 var animstate = 0
 
 func _on_ready() -> void:
-	print("goyda")
+	print("PROTOCOL GOYDA INITIALIZED")
 	pass # Replace with function body.
 
 func sleep(sec):
