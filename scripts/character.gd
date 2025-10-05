@@ -62,20 +62,20 @@ func _on_reject_button_down() -> void:
 	var chance = randi() % 100
 	print(chance)
 	if chance > 50:
-		chat_text.text = """[color=#000000]Блин [i]мне очень нужны[/i]
-[color=#ff0000][b]БАБКИ[/b][/color]
-Давай скину пару баксов...[/color]"""
+		chat_text.text = """[color=#000000]Shit, homie [i]I need money[/i]
+[color=#ff0000][b]ASAP[/b][/color]
+I could even throw price off a little...[/color]"""
 		var price = randi() % offer_price
 		offer_price = price
-		take_button.text = "Взять - $" + str(price)
+		take_button.text = "Take - $" + str(price)
 	else:
-		chat_text.text = """[b][color=#900000]ДА ПОШËЛ ТЫ[/color][/b]"""
+		chat_text.text = """[b][color=#900000]No thanks![/color][/b]"""
 		anim_player.play("guy_leave")
 		await anim_player.animation_finished
 		chatbox.visible = false
 		$"../Table/Item".hide_item()
-		chat_text.text = """[color=#000000]Йоу чувак, зацени [b]ЭТО
-[/b]Отрыл на хате у своей
-бабули, выглядит [b][color=#ff0000]дорого[/color][/b][/color]"""
+		chat_text.text = """[color=#000000]Heya! Check [b]THIS[/b] out!
+Found in my grandmas house 
+Looks [b][color=#ff0000]expensive![/color][/b][/color]"""
 		come_and_offer()
 	pass # Replace with function body.
