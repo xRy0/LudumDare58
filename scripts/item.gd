@@ -7,10 +7,12 @@ class_name Item
 @export var current_texture: Sprite2D
 @export var current_price: Label
 @export var current_description: Label
+var current_index: int
 
 var textures: Array[Texture] = []
 var prices: Array[int] = []
 var descriptions: Array[String] = []
+
 
 func _ready():
 	textures = [
@@ -41,6 +43,7 @@ func choose_random_item():
 		return
 
 	var index = randi() % textures.size()
+	current_index = index
 	var canvas = CanvasTexture.new()
 	canvas.diffuse_texture = textures[index]
 	canvas.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST

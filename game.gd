@@ -33,3 +33,8 @@ func _on_button_button_down() -> void:
 func _on_button_2_button_down() -> void:
 	updMoney(money+100)
 	pass # Replace with function body.
+
+
+func _on_inventory_button_button_down() -> void:
+	$lombard/Character/model/AnimationPlayer.play("down")
+	pass # Replace with function body.

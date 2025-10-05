@@ -8,6 +8,7 @@ class_name CharacterBase
 @export var take_button: Button
 @export var reject_button: Button
 @export var chatbox: Sprite2D
+@export var inventory: Inv
 
 var visual_node: Node = null
 var anim_player: AnimationPlayer = null
@@ -36,7 +37,7 @@ func stop_animation():
 		anim_player.stop()
 
 func come_and_offer():
-	var price = randi() % 100
+	var price = (randi() % 100) + 1
 	offer_price = price
 	take_button.text = "Взять - $" + str(price)
 	anim_player.play("new_guy_coming")
@@ -49,6 +50,7 @@ func _on_take_button_down() -> void:
 	var mainnode = $"../.."
 	if mainnode.updMoney(mainnode.money - offer_price) == 0:
 		print("asd")
+		inventory.addItem($"../Table/Item")
 		chatbox.visible = false
 		$"../Table/Item".hide_item()
 		anim_player.play("guy_leave")
@@ -65,7 +67,7 @@ func _on_reject_button_down() -> void:
 		chat_text.text = """[color=#000000]Shit, homie [i]I need money[/i]
 [color=#ff0000][b]ASAP[/b][/color]
 I could even throw price off a little...[/color]"""
-		var price = randi() % offer_price
+		var price = (randi() % offer_price) + 1
 		offer_price = price
 		take_button.text = "Take - $" + str(price)
 	else:
