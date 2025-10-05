@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://wv55ssu6ivls"]
+[gd_scene load_steps=44 format=3 uid="uid://wv55ssu6ivls"]
 
 [ext_resource type="Script" uid="uid://be34ymwo5ydau" path="res://game.gd" id="1_xkndl"]
 [ext_resource type="Texture2D" uid="uid://bmh712irsy8ls" path="res://assets/Sprite-0001.png" id="2_2vekm"]
@@ -21,6 +21,9 @@
 [ext_resource type="Texture2D" uid="uid://gkgglnlxwtbf" path="res://assets/inv_org_btn.png" id="18_bvhbk"]
 [ext_resource type="Texture2D" uid="uid://bnlhpj3gnyamg" path="res://assets/inv_gr_btn.png" id="19_cpsxm"]
 [ext_resource type="Texture2D" uid="uid://bi5w82s64v4dq" path="res://assets/cell.png" id="21_hmewc"]
+[ext_resource type="AudioStream" uid="uid://crxs0qe5e1imu" path="res://assets/snd/main.ogg" id="22_7ged1"]
+[ext_resource type="AudioStream" uid="uid://vun6ngyebolx" path="res://assets/snd/only_main.ogg" id="23_w2501"]
+[ext_resource type="AudioStream" uid="uid://dkahmfe1efaxd" path="res://assets/snd/only_bass.ogg" id="24_jsoai"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_0yprl"]
 diffuse_texture = ExtResource("2_2vekm")
@@ -393,9 +396,12 @@ texture_filter = 1
 [sub_resource type="CanvasTexture" id="CanvasTexture_jsoai"]
 texture_filter = 1
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("money_label")]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("money_label", "track_main", "track_piano", "track_bass")]
 script = ExtResource("1_xkndl")
 money_label = NodePath("lombard/Table/TextureButton3/PriceLabel")
+track_main = NodePath("ASP_MAIN")
+track_piano = NodePath("ASP_PIANO")
+track_bass = NodePath("ASP_BASS")
 
 [node name="Background" type="Sprite2D" parent="."]
 visible = false
@@ -780,6 +786,18 @@ offset_top = 46.0
 offset_right = 106.0
 offset_bottom = 77.0
 text = "Add Money"
+
+[node name="ASP_MAIN" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_7ged1")
+autoplay = true
+
+[node name="ASP_PIANO" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_w2501")
+autoplay = true
+
+[node name="ASP_BASS" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_jsoai")
+autoplay = true
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="button_down" from="lombard/Table/InventoryButton" to="." method="_on_inventory_button_button_down"]
