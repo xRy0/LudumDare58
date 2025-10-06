@@ -84,15 +84,39 @@ func _on_button_2_button_down() -> void:
 @onready var anim_player = $SceneAnimator
 
 func _on_inventory_button_button_down() -> void:
-	if (anim_player.current_animation == "down"):
+	if (anim_player.current_animation == "down" or anim_player.current_animation == "down_collection"):
 		return
 	anim_player.play("down")
 	set_active_track(2)
 	pass # Replace with function body.
 
 func _on_collection_button_2_button_down() -> void:
-	if (anim_player.current_animation == "down"):
+	if (anim_player.current_animation == "down" or anim_player.current_animation == "down_collection" or anim_player.current_animation == "side_to_collection"):
 		return
-	anim_player.play("down")
+	anim_player.play("down_collection")
 	set_active_track(1)
+	pass # Replace with function body.
+
+
+func _on_up_btn_2_button_down() -> void:
+	if (anim_player.current_animation == "down" or anim_player.current_animation == "down_collection" or anim_player.current_animation == "side_to_collection"):
+		return
+	anim_player.play_backwards("down_collection")
+	set_active_track(0)
+	pass # Replace with function body.
+
+
+func _on_r_btn_button_down() -> void:
+	if (anim_player.current_animation == "down" or anim_player.current_animation == "down_collection" or anim_player.current_animation == "side_to_collection"):
+		return
+	anim_player.play("side_to_collection")
+	set_active_track(1)
+	pass # Replace with function body.
+
+
+func _on_l_btn_button_down() -> void:
+	if (anim_player.current_animation == "down" or anim_player.current_animation == "down_collection" or anim_player.current_animation == "side_to_collection"):
+		return
+	anim_player.play_backwards("side_to_collection")
+	set_active_track(2)
 	pass # Replace with function body.
