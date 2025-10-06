@@ -18,14 +18,18 @@ func addItem(item: Item):
 func sellItem(id: int) -> void:
 	print(id)
 	var index = page * 6 + id
-
 	if index >= Inventory.size():
 		return;
 	var item = Inventory.pop_at(page*8+id)
 	updInv()
 	var mainnode = $".."
+	$"..".playsfx("sell", true)
 	mainnode.updMoney(mainnode.money + $"../lombard/Table/Item".prices[item])
 	$"../collection".updCol()
+	var PIZDEC = CanvasTexture.new()
+	PIZDEC.diffuse_texture = load("res://assets/take_btn.png")
+	PIZDEC.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	$"../lombard/Character/model/chatbox/Take".texture_normal = PIZDEC
 	pass
 	
 func updInv():

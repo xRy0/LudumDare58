@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://wv55ssu6ivls"]
+[gd_scene load_steps=91 format=3 uid="uid://wv55ssu6ivls"]
 
 [ext_resource type="Script" uid="uid://be34ymwo5ydau" path="res://game.gd" id="1_xkndl"]
 [ext_resource type="Texture2D" uid="uid://bmh712irsy8ls" path="res://assets/Sprite-0001.png" id="2_2vekm"]
@@ -34,10 +34,9 @@
 [ext_resource type="Script" uid="uid://d4cmfk4rjlo4v" path="res://scripts/collection.gd" id="27_gebyw"]
 [ext_resource type="Texture2D" uid="uid://badpjng3htfig" path="res://assets/equals.png" id="29_4my3f"]
 [ext_resource type="Texture2D" uid="uid://17fbd2jfuae" path="res://assets/CRAFT.png" id="30_xwkxq"]
-[ext_resource type="Texture2D" uid="uid://c1gk0ivqn8c2e" path="res://assets/items/vase-ch1.png" id="33_202ut"]
-[ext_resource type="Texture2D" uid="uid://bly7t4i8v3c1u" path="res://assets/items/vase-ch2.png" id="34_5he1h"]
+[ext_resource type="Texture2D" uid="uid://bebhjh6do2mkh" path="res://assets/snd_enabled.png" id="33_suycs"]
+[ext_resource type="Texture2D" uid="uid://c14aag0gpvjv5" path="res://assets/snd_disabled.png" id="34_202ut"]
 [ext_resource type="Texture2D" uid="uid://bpa8jblnbcs6g" path="res://assets/items/cup_gaming.png" id="35_hxy8k"]
-[ext_resource type="Texture2D" uid="uid://cqgc6okk58ull" path="res://assets/items/vase-ch3.png" id="35_xwkxq"]
 [ext_resource type="Texture2D" uid="uid://bo4qfatxo5i38" path="res://assets/items/FINAL.png" id="36_2t1a5"]
 
 [sub_resource type="Curve" id="Curve_w2501"]
@@ -49,24 +48,32 @@ diffuse_texture = ExtResource("2_2vekm")
 texture_filter = 1
 
 [sub_resource type="LabelSettings" id="LabelSettings_yyih5"]
-line_spacing = -7.26
+line_spacing = -3.26
 font = ExtResource("16_elkpi")
 font_size = 24
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_o6tbt"]
+diffuse_texture = ExtResource("18_bisgb")
+texture_filter = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_fj2yu"]
+font = ExtResource("7_0yprl")
+font_size = 150
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_wuoie"]
 resource_local_to_scene = true
 diffuse_texture = ExtResource("5_qjyg3")
 texture_filter = 1
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_bvhbk"]
-diffuse_texture = ExtResource("6_elkpi")
-texture_filter = 1
-
 [sub_resource type="LabelSettings" id="LabelSettings_wuoie"]
 font = ExtResource("7_0yprl")
 font_size = 65
 font_color = Color(0.06666667, 0.06666667, 0.06666667, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_bvhbk"]
+diffuse_texture = ExtResource("6_elkpi")
+texture_filter = 1
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_cpsxm"]
 diffuse_texture = ExtResource("7_qjyg3")
@@ -403,6 +410,10 @@ texture_filter = 1
 diffuse_texture = ExtResource("18_bisgb")
 texture_filter = 1
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_hxy8k"]
+diffuse_texture = ExtResource("29_4my3f")
+texture_filter = 1
+
 [sub_resource type="LabelSettings" id="LabelSettings_w7ht3"]
 font = ExtResource("7_0yprl")
 font_size = 19
@@ -472,23 +483,23 @@ texture_filter = 1
 diffuse_texture = ExtResource("19_cpsxm")
 texture_filter = 1
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_hxy8k"]
-diffuse_texture = ExtResource("29_4my3f")
+[sub_resource type="CanvasTexture" id="CanvasTexture_n7324"]
+diffuse_texture = ExtResource("30_xwkxq")
 texture_filter = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_202ut"]
 size = Vector2(3.237, 4.14)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_2t1a5"]
-diffuse_texture = ExtResource("33_202ut")
+diffuse_texture = ExtResource("34_202ut")
 texture_filter = 1
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_8576b"]
-diffuse_texture = ExtResource("34_5he1h")
+diffuse_texture = ExtResource("34_202ut")
 texture_filter = 1
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_68r7h"]
-diffuse_texture = ExtResource("35_xwkxq")
+diffuse_texture = ExtResource("33_suycs")
 texture_filter = 1
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_7vltt"]
@@ -563,7 +574,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(895.00006, 620)]
+"values": [Vector2(895, 750)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -600,6 +611,30 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("lombard/Table/CollectionButton2:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(295, 750)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("lombard/Table/InventoryButton:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(15, 750)]
 }
 
 [sub_resource type="Animation" id="Animation_jsoai"]
@@ -827,32 +862,76 @@ tracks/3/keys = {
 "values": [0.0, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_suycs"]
+resource_name = "start_game"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lombard/Table/CollectionButton2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.3, 1),
+"update": 0,
+"values": [Vector2(295, 750), Vector2(295, 620)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lombard/Table/InventoryButton:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.3, 1),
+"update": 0,
+"values": [Vector2(15, 750), Vector2(15, 620)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("lombard/Table/TextureButton3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.3, 1),
+"update": 0,
+"values": [Vector2(895, 750), Vector2(895, 620)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y5ctq"]
 _data = {
 &"RESET": SubResource("Animation_bisgb"),
 &"down": SubResource("Animation_jsoai"),
 &"down_collection": SubResource("Animation_8ktx7"),
-&"side_to_collection": SubResource("Animation_hwsgv")
+&"side_to_collection": SubResource("Animation_hwsgv"),
+&"start_game": SubResource("Animation_suycs")
 }
+
+[sub_resource type="LabelSettings" id="LabelSettings_v5dxo"]
+font = ExtResource("7_0yprl")
+font_size = 72
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("money_label", "track_main", "track_piano", "track_bass")]
 script = ExtResource("1_xkndl")
-money = 2500
+money = 500
 money_label = NodePath("lombard/Table/TextureButton3/PriceLabel")
 track_main = NodePath("ASP_MAIN")
 track_piano = NodePath("ASP_PIANO")
 track_bass = NodePath("ASP_BASS")
 fade_curve = SubResource("Curve_w2501")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="lombard" type="Node2D" parent="."]
+
+[node name="Table" type="Node2D" parent="lombard"]
+
+[node name="Background" type="Sprite2D" parent="lombard/Table"]
 visible = false
 position = Vector2(639.99994, 359.99997)
 scale = Vector2(5, 5)
 texture = SubResource("CanvasTexture_0yprl")
-
-[node name="lombard" type="Node2D" parent="."]
-
-[node name="Table" type="Node2D" parent="lombard"]
 
 [node name="Table_PC" type="Sprite2D" parent="lombard/Table"]
 z_index = 6
@@ -868,11 +947,13 @@ offset_top = -34.2
 offset_right = 186.33939
 offset_bottom = 33.7783
 scale = Vector2(0.475, 0.475)
-text = "Hello!"
+text = "Seal the Deal
+Ludum Dare 58"
 label_settings = SubResource("LabelSettings_yyih5")
 autowrap_mode = 2
 
 [node name="Price" type="Label" parent="lombard/Table/Table_PC"]
+texture_filter = 1
 offset_left = 22.754496
 offset_top = 1.6399904
 offset_right = 184.14378
@@ -880,6 +961,24 @@ offset_bottom = 29.506872
 scale = Vector2(0.475, 0.475)
 label_settings = SubResource("LabelSettings_yyih5")
 autowrap_mode = 2
+
+[node name="GameStart" type="TextureButton" parent="lombard/Table/Table_PC"]
+offset_left = 24.351295
+offset_top = 3.9999986
+offset_right = 65.66866
+offset_bottom = 13.999998
+texture_normal = SubResource("CanvasTexture_o6tbt")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="lombard/Table/Table_PC/GameStart"]
+layout_mode = 0
+offset_left = 2.794411
+offset_top = 0.2
+offset_right = 596.79443
+offset_bottom = 162.2
+scale = Vector2(0.06, 0.06)
+text = "Start game"
+label_settings = SubResource("LabelSettings_fj2yu")
 
 [node name="Table_BG" type="Sprite2D" parent="lombard/Table"]
 texture_filter = 1
@@ -892,9 +991,9 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 15.0
-offset_top = 620.0
+offset_top = 750.0
 offset_right = 68.0
-offset_bottom = 637.0
+offset_bottom = 767.0
 grow_vertical = 0
 scale = Vector2(5, 5)
 size_flags_horizontal = 0
@@ -903,35 +1002,39 @@ texture_normal = SubResource("CanvasTexture_wuoie")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="InventoryLabel" type="Label" parent="lombard/Table/InventoryButton"]
+layout_mode = 0
+offset_left = 1.1999998
+offset_top = 0.99999845
+offset_right = 252.2
+offset_bottom = 72.0
+scale = Vector2(0.2, 0.2)
+text = "Inventory"
+label_settings = SubResource("LabelSettings_wuoie")
+horizontal_alignment = 1
+
 [node name="CollectionButton2" type="TextureButton" parent="lombard/Table"]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 295.00003
-offset_top = 620.00006
-offset_right = 349.00003
-offset_bottom = 637.00006
+offset_left = 295.0
+offset_top = 750.0
+offset_right = 349.0
+offset_bottom = 767.0
 grow_vertical = 0
 scale = Vector2(5, 5)
 texture_normal = SubResource("CanvasTexture_bvhbk")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="CollectionLabel" type="Label" parent="lombard/Table"]
-offset_left = 303.0
-offset_top = 627.0
-offset_right = 558.0
-offset_bottom = 698.0
+[node name="CollectionLabel" type="Label" parent="lombard/Table/CollectionButton2"]
+layout_mode = 0
+offset_left = 1.5999908
+offset_top = 1.3999863
+offset_right = 256.59998
+offset_bottom = 72.39999
+scale = Vector2(0.2, 0.2)
 text = "Collection"
-label_settings = SubResource("LabelSettings_wuoie")
-horizontal_alignment = 1
-
-[node name="InventoryLabel" type="Label" parent="lombard/Table"]
-offset_left = 22.0
-offset_top = 628.0
-offset_right = 273.0
-offset_bottom = 699.0
-text = "Inventory"
 label_settings = SubResource("LabelSettings_wuoie")
 horizontal_alignment = 1
 
@@ -942,10 +1045,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 895.00006
-offset_top = 620.0
-offset_right = 969.00006
-offset_bottom = 637.0
+offset_left = 895.0
+offset_top = 750.0
+offset_right = 969.0
+offset_bottom = 767.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(5, 5)
@@ -981,7 +1084,7 @@ texture = SubResource("CanvasTexture_hmewc")
 [node name="Door-bg" type="Sprite2D" parent="lombard/Background"]
 z_index = -1
 texture_filter = 1
-position = Vector2(322, 361.00003)
+position = Vector2(324, 367)
 scale = Vector2(5.0312495, 5.0138884)
 texture = ExtResource("13_elkpi")
 
@@ -1042,6 +1145,7 @@ offset_right = 35.399998
 offset_bottom = 12.506943
 scale = Vector2(0.3, 0.3)
 texture_normal = SubResource("CanvasTexture_y5ctq")
+texture_disabled = SubResource("CanvasTexture_hxy8k")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -1340,7 +1444,7 @@ offset_right = -348.0
 offset_bottom = -111.0
 scale = Vector2(5, 5)
 pivot_offset = Vector2(15, 20)
-texture_normal = ExtResource("30_xwkxq")
+texture_normal = SubResource("CanvasTexture_n7324")
 
 [node name="Item" type="Sprite2D" parent="collection/ShitCode/cell1"]
 visible = false
@@ -1478,7 +1582,6 @@ texture = SubResource("CanvasTexture_iueff")
 [node name="DEV" type="Node" parent="."]
 
 [node name="Panel" type="Panel" parent="DEV"]
-visible = false
 z_index = 4096
 offset_left = 1080.0
 offset_top = 2.0
@@ -1502,6 +1605,14 @@ offset_right = 106.0
 offset_bottom = 77.0
 text = "Add Money"
 
+[node name="Button3" type="Button" parent="DEV/Panel"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 84.0
+offset_right = 95.0
+offset_bottom = 115.0
+text = "End game"
+
 [node name="ASP_MAIN" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("22_7ged1")
 autoplay = true
@@ -1519,7 +1630,83 @@ libraries = {
 &"": SubResource("AnimationLibrary_y5ctq")
 }
 
+[node name="sfxplayer" type="AudioStreamPlayer" parent="."]
+
+[node name="TextureButton" type="TextureButton" parent="."]
+z_index = 20
+offset_left = 1212.0
+offset_top = 14.0
+offset_right = 1266.0
+offset_bottom = 68.0
+toggle_mode = true
+button_pressed = true
+texture_normal = SubResource("CanvasTexture_2t1a5")
+texture_pressed = SubResource("CanvasTexture_68r7h")
+texture_disabled = SubResource("CanvasTexture_8576b")
+stretch_mode = 0
+
+[node name="FinishGame" type="Panel" parent="."]
+visible = false
+z_index = 51
+offset_right = 1291.0
+offset_bottom = 728.0
+
+[node name="Gamefinished" type="RichTextLabel" parent="FinishGame"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 60.0
+offset_right = 1282.0
+offset_bottom = 224.0
+theme_override_fonts/normal_font = ExtResource("7_0yprl")
+theme_override_font_sizes/normal_font_size = 150
+bbcode_enabled = true
+text = "[wave][center]Game Finished![/center][/wave]"
+
+[node name="Time" type="Label" parent="FinishGame"]
+layout_mode = 0
+offset_top = 214.0
+offset_right = 1281.0
+offset_bottom = 292.0
+text = "Time elapsed: "
+label_settings = SubResource("LabelSettings_v5dxo")
+horizontal_alignment = 1
+
+[node name="Money" type="Label" parent="FinishGame"]
+layout_mode = 0
+offset_top = 293.0
+offset_right = 1281.0
+offset_bottom = 371.0
+text = "Money left: "
+label_settings = SubResource("LabelSettings_v5dxo")
+horizontal_alignment = 1
+
+[node name="Thanks" type="RichTextLabel" parent="FinishGame"]
+layout_mode = 0
+offset_top = 366.0
+offset_right = 1283.0
+offset_bottom = 444.0
+theme_override_fonts/normal_font = ExtResource("7_0yprl")
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "[center][wave]Thanks for playing[/wave][/center]"
+
+[node name="Sprite2D2" type="Sprite2D" parent="FinishGame"]
+position = Vector2(476, 543)
+scale = Vector2(3, 3)
+texture = SubResource("CanvasTexture_7vltt")
+
+[node name="Sprite2D3" type="Sprite2D" parent="FinishGame"]
+position = Vector2(645, 543)
+scale = Vector2(3, 3)
+texture = SubResource("CanvasTexture_fj2yu")
+
+[node name="Sprite2D4" type="Sprite2D" parent="FinishGame"]
+position = Vector2(801, 543)
+scale = Vector2(3, 3)
+texture = SubResource("CanvasTexture_iueff")
+
 [connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="button_down" from="lombard/Table/Table_PC/GameStart" to="." method="_on_game_start_button_down"]
 [connection signal="button_down" from="lombard/Table/InventoryButton" to="." method="_on_inventory_button_button_down"]
 [connection signal="button_down" from="lombard/Table/CollectionButton2" to="." method="_on_collection_button_2_button_down"]
 [connection signal="button_down" from="lombard/Character/model/chatbox/Take" to="lombard/Character" method="_on_take_button_down"]
@@ -1541,3 +1728,5 @@ libraries = {
 [connection signal="button_down" from="collection/Sprite2D" to="collection" method="_on_hide_button_down"]
 [connection signal="button_down" from="DEV/Panel/Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="DEV/Panel/Button2" to="." method="_on_button_2_button_down"]
+[connection signal="button_down" from="DEV/Panel/Button3" to="." method="finish_game"]
+[connection signal="toggled" from="TextureButton" to="." method="_on_texture_button_toggled"]

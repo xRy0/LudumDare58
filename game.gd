@@ -8,27 +8,56 @@ var time = 0
 @export var money_label: Label
 var previous_track: AudioStreamPlayer = null
 var current_track: AudioStreamPlayer = null
+var track_index = 1;
+
 
 @export var track_main: AudioStreamPlayer
 @export var track_piano: AudioStreamPlayer
 @export var track_bass: AudioStreamPlayer
 @export var fade_speed = 1.0
 @export var fade_curve: Curve
+@export var sound_enabled: bool = true
 var fade_t := 0.0
 var fading := false
 
+var sfx = {
+	"sell": "res://assets/snd/snd_sell.ogg",
+	"took": "res://assets/snd/snd_took.ogg",
+	"reject": "res://assets/snd/snd_rejected.ogg"
+}
+
+var game_start_time: int
+var game_end_time: int
+var game_time: float
+
+func playsfx(sound, pitched = false):
+	if not sound_enabled:
+		return
+	if not sfx.has(sound):
+		print("sfx not found")
+		return
+	var stream = load(sfx[sound])
+	if not stream:
+		print("failed to load sfx " + sound)
+		return
+	
+	$sfxplayer.stop()
+	$sfxplayer.stream = stream
+	$sfxplayer.pitch_scale = randf_range(0.80, 1.20) if pitched else 1
+	$sfxplayer.volume_db = 2.0
+	$sfxplayer.play()
+	pass
+
 
 func _on_ready() -> void:
-	updMoney(money)
-	print("PROTOCOL GOYDA INITIALIZED")
 	for track in [track_main, track_piano, track_bass]:
 		track.volume_db = -80
 		track.play()
-	current_track = track_main
+	current_track = track_piano
 	previous_track = track_bass
-	current_track.volume_db = 0
-	await sleep(2)
-	$lombard/Character.come_and_offer()
+	current_track.volume_db = 0.0 if sound_enabled else -80.0
+	$TextureButton.button_pressed = sound_enabled
+	print("PROTOCOL GOYDA INITIALIZED")
 	pass # Replace with function body.
 
 func sleep(sec):
@@ -48,10 +77,8 @@ func _on_button_button_down() -> void:
 
 
 func set_active_track(new_track: int):
+	track_index = new_track
 	var requested_track: AudioStreamPlayer = [track_main, track_piano, track_bass][new_track]
-	
-	if current_track == requested_track:
-		return
 	if requested_track == track_main:
 		$lombard/Character.typing_muted = false
 	else: 
@@ -77,10 +104,19 @@ func _process(delta):
 
 	var fade_in_val = fade_curve.sample(min(fade_t / fade_in_time, 1.0))
 	var fade_out_val = fade_curve.sample(min(fade_t / fade_out_time, 1.0))
-	if previous_track:
-		previous_track.volume_db = lerp(0.0, -80.0, fade_out_val)
+	
+	var max_snd = 0.0 if sound_enabled else -80.0
+	if current_track == track_bass:
+		track_piano.volume_db = lerp(max_snd, -80.0, fade_out_val)
+		track_main.volume_db = lerp(max_snd, -80.0, fade_out_val)
+	elif current_track == track_piano:
+		track_bass.volume_db = lerp(max_snd, -80.0, fade_out_val)
+		track_main.volume_db = lerp(max_snd, -80.0, fade_out_val)
+	elif current_track == track_main:
+		track_piano.volume_db = lerp(max_snd, -80.0, fade_out_val)
+		track_bass.volume_db = lerp(max_snd, -80.0, fade_out_val)
 	if current_track:
-		current_track.volume_db = lerp(-80.0, 0.0, fade_in_val)
+		current_track.volume_db = lerp(-80.0, max_snd, fade_in_val)
 
 
 func _on_button_2_button_down() -> void:
@@ -125,4 +161,50 @@ func _on_l_btn_button_down() -> void:
 		return
 	anim_player.play_backwards("side_to_collection")
 	set_active_track(2)
+	pass # Replace with function body.
+
+
+func _on_texture_button_toggled(toggled_on: bool) -> void:
+	sound_enabled = toggled_on
+	if sound_enabled:
+		set_active_track(track_index)
+	else:
+		track_main.volume_db = -80.0
+		track_piano.volume_db = -80.0
+		track_bass.volume_db = -80.0
+	pass # Replace with function body.
+
+
+func format_time(ms: int) -> String:
+	var total_sec = ms / 1000
+	var hours = total_sec / 3600
+	var minutes = (total_sec % 3600) / 60
+	var seconds = total_sec % 60
+	var msc = ms % 1000
+	if hours > 0:
+		return "%02d:%02d:%02d.%03d" % [hours, minutes, seconds, msc]
+	else:
+		return "%02d:%02d.%03d" % [minutes, seconds, msc]
+
+func finish_game() -> void:
+	var elapsed_ms = Time.get_ticks_msec() - game_start_time
+	var formatted_time = format_time(elapsed_ms)
+	$FinishGame/Time.text = "Time elapsed: " + formatted_time
+	$FinishGame/Money.text = "Money left: $" + str(money)
+	$FinishGame.visible = true
+	
+
+func _on_game_start_button_down() -> void:
+	$lombard/Table/Table_PC/Name.text = ""
+	$lombard/Table/Table_PC/Price.text = ""
+	$lombard/Table/Table_PC/GameStart.visible = false
+	$lombard/Table/Table_PC/GameStart.disabled = true
+	game_start_time = Time.get_ticks_msec()
+	anim_player.play("start_game")
+	updMoney(money)
+	current_track = track_main
+	previous_track = track_bass
+	current_track.volume_db = 0.0 if sound_enabled else -80.0
+	await sleep(0.5)
+	$lombard/Character.come_and_offer()
 	pass # Replace with function body.

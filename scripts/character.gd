@@ -81,7 +81,6 @@ var female_sound_paths = [
 	"res://assets/snd/TXT/SND_WOM_TXT4.ogg"
 ]
 
-
 func start_typing(new_text: String):
 	full_text = new_text
 	display_text = ""
@@ -91,7 +90,7 @@ func start_typing(new_text: String):
 	typing_loop()
 
 func play_type_snd():
-	if typing_muted:
+	if typing_muted or not $"../..".sound_enabled:
 		return
 	if typer_sounds == null:
 		print("no typer_sounds instance")
@@ -158,7 +157,19 @@ func stop_animation():
 		anim_player.stop()
 
 func come_and_offer():
-	cur_customer = customers.pick_random()
+	var PIZDEC = CanvasTexture.new()
+	if $"../../inventory".Inventory.size() > 5:
+		PIZDEC.diffuse_texture = load("res://assets/take_btn_dis.png")
+		PIZDEC.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		$model/chatbox/Take.texture_normal = PIZDEC
+	else: 
+		PIZDEC.diffuse_texture = load("res://assets/take_btn.png")
+		PIZDEC.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		$model/chatbox/Take.texture_normal = PIZDEC
+	var new_customer = customers.pick_random()
+	while new_customer == cur_customer:
+		new_customer = customers.pick_random()
+	cur_customer = new_customer
 	var CUNT = CanvasTexture.new()
 	CUNT.diffuse_texture = cur_customer.asset
 	CUNT.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
@@ -188,13 +199,14 @@ func come_and_offer():
 func _on_take_button_down() -> void:
 	var mainnode = $"../.."
 	if $"../../inventory".Inventory.size() > 5:
+		$"../..".playsfx("reject", false)
 		return
 	if mainnode.updMoney(mainnode.money - offer_price) == 0:
 		take_button.visible = false
 		reject_button.visible = false
-		print("asd")
 		inventory.addItem(item)
 		item.hide_item()
+		$"../..".playsfx("took", false)
 		start_typing(get_message("thanks_message"))
 		while typing:
 			await get_tree().create_timer(1 / type_speed).timeout
@@ -218,9 +230,11 @@ func _on_reject_button_down() -> void:
 		offer_price = price
 		start_typing(get_message("trade_message", price))
 	else:
+		$"../..".playsfx("reject", false)
 		take_button.visible = false
 		reject_button.visible = false
 		start_typing(get_message("leave_message"))
+		item.hide_item()
 		while typing:
 			await get_tree().create_timer(1 / type_speed).timeout
 		anim_player.play("guy_leave")

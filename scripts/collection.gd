@@ -13,7 +13,7 @@ class_name Coll
 
 var Inventory = []
 
-var stage = 0
+var stage = 2
 var craft_complete = false
 var stage_complete = false
 
@@ -143,6 +143,10 @@ func _on_hide_button_down() -> void:
 
 func _on_FIN_button_down() -> void:
 	if stage_complete:
+		if stage == 3:
+			$"..".anim_player.play_backwards("down_collection")
+			$"..".finish_game()
+			return
 		stage += 1
 		craft_complete = false
 		stage_complete = false
