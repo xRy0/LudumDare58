@@ -36,11 +36,13 @@ func _ready():
 		preload("res://assets/items/switch.png"),
 		preload("res://assets/items/box360.png"),
 		preload("res://assets/items/ps3.png"),
-		preload("res://assets/items/gameboy.png")
+		preload("res://assets/items/GB1.png"),
+		preload("res://assets/items/GB2.png"),
+		preload("res://assets/items/GB3.png")
 		]
 			#                              v hat here
 	prices = [300, 500, 150, 50, 350, 450, 50, 40, 450, 400, 350, 50, 50, 50,
-			  50, 50, 50, 550, 500, 500]
+			  50, 50, 50, 550, 500, 500, 50, 50, 50]
 			# ^ vase      ^ consoles
 	descriptions = [
 		"Bust of a famous person",
@@ -62,7 +64,10 @@ func _ready():
 		"Vase Shard",
 		"Funtendo Console",
 		"MC xStep 365 Console",
-		"SP3 Console"
+		"SP3 Console",
+		"FemBoy Color Buttons",
+		"FemBoy Color Screen",
+		"FemBoy Color Case"
 	]
 
 	# Убедимся, что массивы синхронизированы по длине

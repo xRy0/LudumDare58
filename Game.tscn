@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://wv55ssu6ivls"]
+[gd_scene load_steps=87 format=3 uid="uid://wv55ssu6ivls"]
 
 [ext_resource type="Script" uid="uid://be34ymwo5ydau" path="res://game.gd" id="1_xkndl"]
 [ext_resource type="Texture2D" uid="uid://bmh712irsy8ls" path="res://assets/Sprite-0001.png" id="2_2vekm"]
@@ -27,10 +27,18 @@
 [ext_resource type="Texture2D" uid="uid://72uddoo758hx" path="res://assets/inv_gb.png" id="22_w7ht3"]
 [ext_resource type="AudioStream" uid="uid://eb5knf8x47ul" path="res://assets/snd/only_main.ogg" id="23_w2501"]
 [ext_resource type="AudioStream" uid="uid://dkahmfe1efaxd" path="res://assets/snd/only_bass.ogg" id="24_jsoai"]
+[ext_resource type="Texture2D" uid="uid://drm2f6lf7fokm" path="res://assets/items/cup_music.png" id="25_5he1h"]
 [ext_resource type="Texture2D" uid="uid://bxn4e16l5h6ul" path="res://assets/EMPTYBLYAT.png" id="25_8ktx7"]
 [ext_resource type="Texture2D" uid="uid://3n5w3so50g00" path="res://assets/chel.png" id="26_8ktx7"]
 [ext_resource type="Texture2D" uid="uid://cuu6inyuwn0td" path="res://assets/arrow.png" id="26_hwsgv"]
 [ext_resource type="Script" uid="uid://d4cmfk4rjlo4v" path="res://scripts/collection.gd" id="27_gebyw"]
+[ext_resource type="Texture2D" uid="uid://badpjng3htfig" path="res://assets/equals.png" id="29_4my3f"]
+[ext_resource type="Texture2D" uid="uid://17fbd2jfuae" path="res://assets/CRAFT.png" id="30_xwkxq"]
+[ext_resource type="Texture2D" uid="uid://c1gk0ivqn8c2e" path="res://assets/items/vase-ch1.png" id="33_202ut"]
+[ext_resource type="Texture2D" uid="uid://bly7t4i8v3c1u" path="res://assets/items/vase-ch2.png" id="34_5he1h"]
+[ext_resource type="Texture2D" uid="uid://bpa8jblnbcs6g" path="res://assets/items/cup_gaming.png" id="35_hxy8k"]
+[ext_resource type="Texture2D" uid="uid://cqgc6okk58ull" path="res://assets/items/vase-ch3.png" id="35_xwkxq"]
+[ext_resource type="Texture2D" uid="uid://bo4qfatxo5i38" path="res://assets/items/FINAL.png" id="36_2t1a5"]
 
 [sub_resource type="Curve" id="Curve_w2501"]
 _data = [Vector2(0.0022727288, 0), 0.0, 0.30371106, 0, 0, Vector2(0.5, 0.50086284), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.398333, 0.0, 0, 0]
@@ -421,6 +429,7 @@ diffuse_texture = ExtResource("25_8ktx7")
 texture_filter = 1
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_jsoai"]
+diffuse_texture = ExtResource("25_5he1h")
 texture_filter = 1
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_5he1h"]
@@ -461,6 +470,37 @@ texture_filter = 1
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_0mevm"]
 diffuse_texture = ExtResource("19_cpsxm")
+texture_filter = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_hxy8k"]
+diffuse_texture = ExtResource("29_4my3f")
+texture_filter = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_202ut"]
+size = Vector2(3.237, 4.14)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2t1a5"]
+diffuse_texture = ExtResource("33_202ut")
+texture_filter = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_8576b"]
+diffuse_texture = ExtResource("34_5he1h")
+texture_filter = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_68r7h"]
+diffuse_texture = ExtResource("35_xwkxq")
+texture_filter = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_7vltt"]
+diffuse_texture = ExtResource("25_5he1h")
+texture_filter = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_fj2yu"]
+diffuse_texture = ExtResource("35_hxy8k")
+texture_filter = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_iueff"]
+diffuse_texture = ExtResource("36_2t1a5")
 texture_filter = 1
 
 [sub_resource type="Animation" id="Animation_bisgb"]
@@ -1260,9 +1300,16 @@ scale = Vector2(3, 3)
 texture_normal = SubResource("CanvasTexture_wdm1y")
 stretch_mode = 5
 
-[node name="collection" type="Node2D" parent="."]
+[node name="collection" type="Node2D" parent="." node_paths=PackedStringArray("inv", "Items", "CNBT", "craftCell", "hideBtn", "Recipe", "Fin")]
 position = Vector2(1280, 720)
 script = ExtResource("27_gebyw")
+inv = NodePath("../inventory")
+Items = [NodePath("ShitCode/cell2/Item"), NodePath("ShitCode/cell3/Item"), NodePath("ShitCode/cell4/Item")]
+CNBT = [NodePath("ShitCode/cell2"), NodePath("ShitCode/cell3"), NodePath("ShitCode/cell4")]
+craftCell = NodePath("ShitCode/cell1")
+hideBtn = NodePath("Sprite2D")
+Recipe = [NodePath("Sprite2D/CItem1"), NodePath("Sprite2D/CItem2"), NodePath("Sprite2D/CItem3")]
+Fin = NodePath("ShitCode/cell5")
 
 [node name="bg" type="Sprite2D" parent="collection"]
 scale = Vector2(5, 5)
@@ -1283,204 +1330,88 @@ texture_normal = SubResource("CanvasTexture_0mevm")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="collection"]
-offset_left = 190.0
-offset_top = 137.0
-offset_right = 1077.0
-offset_bottom = 720.0
+[node name="ShitCode" type="Node2D" parent="collection"]
+position = Vector2(656, 511)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="collection/ScrollContainer"]
-custom_minimum_size = Vector2(887, 713.09)
-layout_mode = 2
-
-[node name="ShitCode" type="Node2D" parent="collection/ScrollContainer/VBoxContainer"]
-position = Vector2(274, 238)
-
-[node name="cell1" type="TextureButton" parent="collection/ScrollContainer/VBoxContainer/ShitCode"]
-offset_left = -190.0
-offset_top = -135.99997
-offset_right = -160.0
-offset_bottom = -95.99997
+[node name="cell1" type="TextureButton" parent="collection/ShitCode"]
+offset_left = -378.0
+offset_top = -151.0
+offset_right = -348.0
+offset_bottom = -111.0
 scale = Vector2(5, 5)
 pivot_offset = Vector2(15, 20)
-texture_normal = SubResource("CanvasTexture_w2501")
+texture_normal = ExtResource("30_xwkxq")
 
-[node name="Item" type="Sprite2D" parent="collection/ScrollContainer/VBoxContainer/ShitCode/cell1"]
+[node name="Item" type="Sprite2D" parent="collection/ShitCode/cell1"]
 visible = false
 position = Vector2(15, 14)
 scale = Vector2(0.35, 0.35)
 texture = SubResource("CanvasTexture_jsoai")
 
-[node name="faketaxi" type="Sprite2D" parent="collection/ScrollContainer/VBoxContainer/ShitCode/cell1"]
-visible = false
-position = Vector2(14.799999, 31.199999)
-texture = SubResource("CanvasTexture_5he1h")
-
-[node name="Label" type="Label" parent="collection/ScrollContainer/VBoxContainer/ShitCode/cell1/faketaxi"]
-offset_left = -8.999998
-offset_top = -2.5999994
-offset_right = 414.575
-offset_bottom = 149.4
-scale = Vector2(0.04, 0.04)
-text = "$500"
-label_settings = SubResource("LabelSettings_xwkxq")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="cell2" type="TextureButton" parent="collection/ScrollContainer/VBoxContainer/ShitCode"]
-offset_left = -15.0
-offset_top = -135.99997
-offset_right = 15.0
-offset_bottom = -95.99997
+[node name="cell2" type="TextureButton" parent="collection/ShitCode"]
+offset_left = -202.99998
+offset_top = -150.99997
+offset_right = -172.99998
+offset_bottom = -110.99997
 scale = Vector2(5, 5)
 pivot_offset = Vector2(15, 20)
 texture_normal = SubResource("CanvasTexture_gebyw")
 
-[node name="Item" type="Sprite2D" parent="collection/ScrollContainer/VBoxContainer/ShitCode/cell2"]
+[node name="Item" type="Sprite2D" parent="collection/ShitCode/cell2"]
 visible = false
 position = Vector2(15, 14)
 scale = Vector2(0.35, 0.35)
 texture = SubResource("CanvasTexture_jsoai")
 
-[node name="faketaxi" type="Sprite2D" parent="collection/ScrollContainer/VBoxContainer/ShitCode/cell2"]
-visible = false
-position = Vector2(14.799999, 31.199999)
-texture = SubResource("CanvasTexture_5he1h")
-
-[node name="Label" type="Label" parent="collection/ScrollContainer/VBoxContainer/ShitCode/cell2/faketaxi"]
-offset_left = -8.999998
-offset_top = -2.5999994
-offset_right = 414.575
-offset_bottom = 149.4
-scale = Vector2(0.04, 0.04)
-text = "$500"
-label_settings = SubResource("LabelSettings_xwkxq")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="cell3" type="TextureButton" parent="collection/ScrollContainer/VBoxContainer/ShitCode"]
-offset_left = 160.0
-offset_top = -135.99997
-offset_right = 190.0
-offset_bottom = -95.99997
+[node name="cell3" type="TextureButton" parent="collection/ShitCode"]
+offset_left = -27.999985
+offset_top = -150.99997
+offset_right = 2.0000153
+offset_bottom = -110.99997
 scale = Vector2(5, 5)
 pivot_offset = Vector2(15, 20)
 texture_normal = SubResource("CanvasTexture_4my3f")
 
-[node name="Item" type="Sprite2D" parent="collection/ScrollContainer/VBoxContainer/ShitCode/cell3"]
+[node name="Item" type="Sprite2D" parent="collection/ShitCode/cell3"]
 visible = false
 position = Vector2(15, 14)
 scale = Vector2(0.35, 0.35)
 texture = SubResource("CanvasTexture_jsoai")
 
-[node name="faketaxi" type="Sprite2D" parent="collection/ScrollContainer/VBoxContainer/ShitCode/cell3"]
-visible = false
-position = Vector2(14.799999, 31.199999)
-texture = SubResource("CanvasTexture_5he1h")
-
-[node name="Label" type="Label" parent="collection/ScrollContainer/VBoxContainer/ShitCode/cell3/faketaxi"]
-offset_left = -8.999998
-offset_top = -2.5999994
-offset_right = 414.575
-offset_bottom = 149.4
-scale = Vector2(0.04, 0.04)
-text = "$500"
-label_settings = SubResource("LabelSettings_xwkxq")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="cell5" type="TextureButton" parent="collection/ScrollContainer/VBoxContainer/ShitCode"]
-offset_left = -190.0
-offset_top = 89.00003
-offset_right = -160.0
-offset_bottom = 129.00003
+[node name="cell4" type="TextureButton" parent="collection/ShitCode"]
+offset_left = 147.00002
+offset_top = -151.00003
+offset_right = 177.00002
+offset_bottom = -111.00003
 scale = Vector2(5, 5)
 pivot_offset = Vector2(15, 20)
-texture_normal = SubResource("CanvasTexture_aeq37")
+texture_normal = SubResource("CanvasTexture_4my3f")
 
-[node name="Item" type="Sprite2D" parent="collection/ScrollContainer/VBoxContainer/ShitCode/cell5"]
+[node name="Item" type="Sprite2D" parent="collection/ShitCode/cell4"]
 visible = false
 position = Vector2(15, 14)
 scale = Vector2(0.35, 0.35)
 texture = SubResource("CanvasTexture_jsoai")
 
-[node name="faketaxi" type="Sprite2D" parent="collection/ScrollContainer/VBoxContainer/ShitCode/cell5"]
-visible = false
-position = Vector2(14.799999, 31.199999)
-texture = SubResource("CanvasTexture_5he1h")
+[node name="equal" type="Sprite2D" parent="collection/ShitCode"]
+position = Vector2(287, -129.99998)
+scale = Vector2(5, 5)
+texture = SubResource("CanvasTexture_hxy8k")
 
-[node name="Label" type="Label" parent="collection/ScrollContainer/VBoxContainer/ShitCode/cell5/faketaxi"]
-offset_left = -8.999998
-offset_top = -2.5999994
-offset_right = 414.575
-offset_bottom = 149.4
-scale = Vector2(0.04, 0.04)
-text = "$500"
-label_settings = SubResource("LabelSettings_xwkxq")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="cell6" type="TextureButton" parent="collection/ScrollContainer/VBoxContainer/ShitCode"]
-offset_left = -15.0
-offset_top = 89.00003
-offset_right = 15.0
-offset_bottom = 129.00003
+[node name="cell5" type="TextureButton" parent="collection/ShitCode"]
+offset_left = 397.0
+offset_top = -150.00003
+offset_right = 427.0
+offset_bottom = -110.00003
 scale = Vector2(5, 5)
 pivot_offset = Vector2(15, 20)
-texture_normal = SubResource("CanvasTexture_suycs")
+texture_normal = SubResource("CanvasTexture_4my3f")
 
-[node name="Item" type="Sprite2D" parent="collection/ScrollContainer/VBoxContainer/ShitCode/cell6"]
+[node name="Item" type="Sprite2D" parent="collection/ShitCode/cell5"]
 visible = false
-position = Vector2(15, 14)
-scale = Vector2(0.35, 0.35)
+position = Vector2(15, 19.8)
+scale = Vector2(0.7, 0.7)
 texture = SubResource("CanvasTexture_jsoai")
-
-[node name="faketaxi" type="Sprite2D" parent="collection/ScrollContainer/VBoxContainer/ShitCode/cell6"]
-visible = false
-position = Vector2(14.799999, 31.199999)
-texture = SubResource("CanvasTexture_5he1h")
-
-[node name="Label" type="Label" parent="collection/ScrollContainer/VBoxContainer/ShitCode/cell6/faketaxi"]
-offset_left = -8.999998
-offset_top = -2.5999994
-offset_right = 414.575
-offset_bottom = 149.4
-scale = Vector2(0.04, 0.04)
-text = "$500"
-label_settings = SubResource("LabelSettings_xwkxq")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="cell7" type="TextureButton" parent="collection/ScrollContainer/VBoxContainer/ShitCode"]
-offset_left = 160.0
-offset_top = 89.00003
-offset_right = 190.0
-offset_bottom = 129.00003
-scale = Vector2(5, 5)
-pivot_offset = Vector2(15, 20)
-texture_normal = SubResource("CanvasTexture_202ut")
-
-[node name="Item" type="Sprite2D" parent="collection/ScrollContainer/VBoxContainer/ShitCode/cell7"]
-visible = false
-position = Vector2(15, 14)
-scale = Vector2(0.35, 0.35)
-texture = SubResource("CanvasTexture_jsoai")
-
-[node name="faketaxi" type="Sprite2D" parent="collection/ScrollContainer/VBoxContainer/ShitCode/cell7"]
-visible = false
-position = Vector2(14.799999, 31.199999)
-texture = SubResource("CanvasTexture_5he1h")
-
-[node name="Label" type="Label" parent="collection/ScrollContainer/VBoxContainer/ShitCode/cell7/faketaxi"]
-offset_left = -8.999998
-offset_top = -2.5999994
-offset_right = 414.575
-offset_bottom = 149.4
-scale = Vector2(0.04, 0.04)
-text = "$500"
-label_settings = SubResource("LabelSettings_xwkxq")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="LBtn" type="TextureButton" parent="collection"]
 offset_left = 120.0
@@ -1491,6 +1422,58 @@ rotation = -3.1415927
 scale = Vector2(3, 3)
 texture_normal = SubResource("CanvasTexture_wdm1y")
 stretch_mode = 5
+
+[node name="Area2D" type="Area2D" parent="collection"]
+z_index = 20
+position = Vector2(218, 280)
+scale = Vector2(5, 5)
+priority = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collection/Area2D"]
+z_index = 6
+position = Vector2(14.79126, 19.90001)
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_202ut")
+
+[node name="Sprite2D" type="Button" parent="collection"]
+visible = false
+offset_left = 127.0
+offset_top = 214.0
+offset_right = 452.0
+offset_bottom = 548.0
+
+[node name="CItem1" type="Sprite2D" parent="collection/Sprite2D"]
+position = Vector2(83, 83)
+scale = Vector2(3, 3)
+texture = SubResource("CanvasTexture_2t1a5")
+
+[node name="CItem2" type="Sprite2D" parent="collection/Sprite2D"]
+position = Vector2(233, 88)
+scale = Vector2(3, 3)
+texture = SubResource("CanvasTexture_8576b")
+
+[node name="CItem3" type="Sprite2D" parent="collection/Sprite2D"]
+position = Vector2(158, 244)
+scale = Vector2(3, 3)
+texture = SubResource("CanvasTexture_68r7h")
+
+[node name="Sprite2D2" type="Sprite2D" parent="collection"]
+visible = false
+position = Vector2(127, 600)
+scale = Vector2(3, 3)
+texture = SubResource("CanvasTexture_7vltt")
+
+[node name="Sprite2D3" type="Sprite2D" parent="collection"]
+visible = false
+position = Vector2(296, 600)
+scale = Vector2(3, 3)
+texture = SubResource("CanvasTexture_fj2yu")
+
+[node name="Sprite2D4" type="Sprite2D" parent="collection"]
+visible = false
+position = Vector2(452, 600)
+scale = Vector2(3, 3)
+texture = SubResource("CanvasTexture_iueff")
 
 [node name="DEV" type="Node" parent="."]
 
@@ -1550,6 +1533,11 @@ libraries = {
 [connection signal="button_down" from="inventory/ShitCode/cell7" to="inventory" method="sellItem" binds= [5]]
 [connection signal="button_down" from="inventory/RBtn" to="." method="_on_r_btn_button_down"]
 [connection signal="button_down" from="collection/UpBtn2" to="." method="_on_up_btn_2_button_down"]
+[connection signal="button_down" from="collection/ShitCode/cell1" to="collection" method="_on_craft_button_down"]
+[connection signal="button_down" from="collection/ShitCode/cell5" to="collection" method="_on_FIN_button_down"]
 [connection signal="button_down" from="collection/LBtn" to="." method="_on_l_btn_button_down"]
+[connection signal="mouse_entered" from="collection/Area2D" to="collection" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="collection/Area2D" to="collection" method="_on_area_2d_mouse_exited"]
+[connection signal="button_down" from="collection/Sprite2D" to="collection" method="_on_hide_button_down"]
 [connection signal="button_down" from="DEV/Panel/Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="DEV/Panel/Button2" to="." method="_on_button_2_button_down"]

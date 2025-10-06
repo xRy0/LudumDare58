@@ -12,6 +12,7 @@ var page = 0
 func addItem(item: Item):
 	Inventory.append(item.current_index)
 	updInv()
+	$"../collection".updCol()
 	pass
 	
 func sellItem(id: int) -> void:
@@ -24,7 +25,7 @@ func sellItem(id: int) -> void:
 	updInv()
 	var mainnode = $".."
 	mainnode.updMoney(mainnode.money + $"../lombard/Table/Item".prices[item])
-	
+	$"../collection".updCol()
 	pass
 	
 func updInv():
