@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Ludum 58 (Лютый додеп)"
+config/name="Seal the Deal!"
 run/main_scene="uid://wv55ssu6ivls"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
