@@ -1582,6 +1582,7 @@ texture = SubResource("CanvasTexture_iueff")
 [node name="DEV" type="Node" parent="."]
 
 [node name="Panel" type="Panel" parent="DEV"]
+visible = false
 z_index = 4096
 offset_left = 1080.0
 offset_top = 2.0

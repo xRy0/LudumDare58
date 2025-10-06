@@ -91,6 +91,7 @@ func start_typing(new_text: String):
 
 func play_type_snd():
 	if typing_muted or not $"../..".sound_enabled:
+		print(typing_muted, not $"../..".sound_enabled)
 		return
 	if typer_sounds == null:
 		print("no typer_sounds instance")

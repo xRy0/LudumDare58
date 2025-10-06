@@ -168,6 +168,7 @@ func _on_texture_button_toggled(toggled_on: bool) -> void:
 	sound_enabled = toggled_on
 	if sound_enabled:
 		set_active_track(track_index)
+		$lombard/Character.typing_muted = false
 	else:
 		track_main.volume_db = -80.0
 		track_piano.volume_db = -80.0

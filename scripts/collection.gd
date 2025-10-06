@@ -13,7 +13,7 @@ class_name Coll
 
 var Inventory = []
 
-var stage = 2
+var stage = 0
 var craft_complete = false
 var stage_complete = false
 
@@ -76,6 +76,8 @@ func updInv():
 		
 func craft():
 	var done = []
+	if stage >= 3:
+		return
 	for itm in crafts[stage]:
 		if itm in inv.Inventory and itm not in done:
 			done.append(itm)
@@ -109,6 +111,8 @@ func craft():
 
 func updCol():
 	Inventory = []
+	if stage == 3:
+		return
 	for id in inv.Inventory:
 		if id in nitems[stage] and id not in Inventory:
 			Inventory.append(id)
@@ -143,11 +147,11 @@ func _on_hide_button_down() -> void:
 
 func _on_FIN_button_down() -> void:
 	if stage_complete:
+		stage += 1
 		if stage == 3:
 			$"..".anim_player.play_backwards("down_collection")
 			$"..".finish_game()
 			return
-		stage += 1
 		craft_complete = false
 		stage_complete = false
 		Inventory = []
