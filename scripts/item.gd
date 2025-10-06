@@ -48,7 +48,7 @@ func choose_random_item():
 	canvas.diffuse_texture = textures[index]
 	canvas.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	current_texture.texture = canvas
-	current_price.text = "avg price - $" + str(prices[index])
+	current_price.text = "sell price - $" + str(prices[index])
 	current_description.text = descriptions[index]
 	current_texture.visible = true
 	

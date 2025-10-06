@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://wv55ssu6ivls"]
+[gd_scene load_steps=65 format=3 uid="uid://wv55ssu6ivls"]
 
 [ext_resource type="Script" uid="uid://be34ymwo5ydau" path="res://game.gd" id="1_xkndl"]
 [ext_resource type="Texture2D" uid="uid://bmh712irsy8ls" path="res://assets/Sprite-0001.png" id="2_2vekm"]
@@ -17,17 +17,18 @@
 [ext_resource type="Texture2D" uid="uid://t2p45ckid81" path="res://assets/room-wp.png" id="13_elkpi"]
 [ext_resource type="Texture2D" uid="uid://d51ik6r03d70" path="res://assets/textbox.png" id="13_wuoie"]
 [ext_resource type="FontFile" uid="uid://ctwqafmt7eden" path="res://assets/W95FA.otf" id="16_elkpi"]
-[ext_resource type="Texture2D" uid="uid://cq51p3iyyarp1" path="res://assets/inv_bg.png" id="17_0yprl"]
 [ext_resource type="Script" uid="uid://cykaun4on7pp6" path="res://scripts/inv.gd" id="17_cpsxm"]
 [ext_resource type="Texture2D" uid="uid://da6een47cr4tu" path="res://assets/take_btn.png" id="18_bisgb"]
 [ext_resource type="Texture2D" uid="uid://gkgglnlxwtbf" path="res://assets/inv_org_btn.png" id="18_bvhbk"]
 [ext_resource type="FontFile" uid="uid://cp0r36v1xvfce" path="res://assets/faith.otf" id="18_w7ht3"]
 [ext_resource type="Texture2D" uid="uid://bnlhpj3gnyamg" path="res://assets/inv_gr_btn.png" id="19_cpsxm"]
 [ext_resource type="Texture2D" uid="uid://cna6tppqv3i0y" path="res://assets/reject_btn.png" id="19_y5ctq"]
-[ext_resource type="Texture2D" uid="uid://bi5w82s64v4dq" path="res://assets/cell.png" id="21_hmewc"]
 [ext_resource type="AudioStream" uid="uid://crxs0qe5e1imu" path="res://assets/snd/main.ogg" id="22_7ged1"]
+[ext_resource type="Texture2D" uid="uid://72uddoo758hx" path="res://assets/inv_gb.png" id="22_w7ht3"]
 [ext_resource type="AudioStream" uid="uid://eb5knf8x47ul" path="res://assets/snd/only_main.ogg" id="23_w2501"]
 [ext_resource type="AudioStream" uid="uid://dkahmfe1efaxd" path="res://assets/snd/only_bass.ogg" id="24_jsoai"]
+[ext_resource type="Texture2D" uid="uid://bxn4e16l5h6ul" path="res://assets/EMPTYBLYAT.png" id="25_8ktx7"]
+[ext_resource type="Texture2D" uid="uid://3n5w3so50g00" path="res://assets/chel.png" id="26_8ktx7"]
 
 [sub_resource type="Curve" id="Curve_w2501"]
 _data = [Vector2(0.0022727288, 0), 0.0, 0.30371106, 0, 0, Vector2(0.5, 0.50086284), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.398333, 0.0, 0, 0]
@@ -404,6 +405,10 @@ texture_filter = 1
 font = ExtResource("7_0yprl")
 font_size = 19
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_hwsgv"]
+diffuse_texture = ExtResource("22_w7ht3")
+texture_filter = 1
+
 [sub_resource type="CanvasTexture" id="CanvasTexture_7ged1"]
 resource_local_to_scene = true
 diffuse_texture = ExtResource("18_bvhbk")
@@ -414,86 +419,39 @@ diffuse_texture = ExtResource("19_cpsxm")
 texture_filter = 1
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_w2501"]
-diffuse_texture = ExtResource("21_hmewc")
+diffuse_texture = ExtResource("25_8ktx7")
 texture_filter = 1
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_jsoai"]
 texture_filter = 1
 
-[sub_resource type="Animation" id="Animation_jsoai"]
-resource_name = "down"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("lombard:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(2, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, -720)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("lombard:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("inventory:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(2, 1),
-"update": 0,
-"values": [Vector2(0, 720), Vector2(0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("inventory:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("lombard/Table/TextureButton3:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.9227, 1),
-"transitions": PackedFloat32Array(1, 2, 1),
-"update": 0,
-"values": [Vector2(895.00006, 620), Vector2(895.00006, 620), Vector2(895, 734.585)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("lombard/Table/TextureButton3:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.9227, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 0.0]
-}
+[sub_resource type="CanvasTexture" id="CanvasTexture_5he1h"]
+diffuse_texture = ExtResource("26_8ktx7")
+texture_filter = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_xwkxq"]
+font = ExtResource("16_elkpi")
+font_size = 160
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_gebyw"]
+diffuse_texture = ExtResource("25_8ktx7")
+texture_filter = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_4my3f"]
+diffuse_texture = ExtResource("25_8ktx7")
+texture_filter = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_aeq37"]
+diffuse_texture = ExtResource("25_8ktx7")
+texture_filter = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_suycs"]
+diffuse_texture = ExtResource("25_8ktx7")
+texture_filter = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_202ut"]
+diffuse_texture = ExtResource("25_8ktx7")
+texture_filter = 1
 
 [sub_resource type="Animation" id="Animation_bisgb"]
 length = 0.001
@@ -570,6 +528,81 @@ tracks/5/keys = {
 "values": [0.0]
 }
 
+[sub_resource type="Animation" id="Animation_jsoai"]
+resource_name = "down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lombard:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -720)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lombard:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("inventory:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(0, 720), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("inventory:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("lombard/Table/TextureButton3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.9227, 1),
+"transitions": PackedFloat32Array(1, 2, 1),
+"update": 0,
+"values": [Vector2(895.00006, 620), Vector2(895.00006, 620), Vector2(895, 734.585)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("lombard/Table/TextureButton3:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.9227, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y5ctq"]
 _data = {
 &"RESET": SubResource("Animation_bisgb"),
@@ -578,7 +611,7 @@ _data = {
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("money_label", "track_main", "track_piano", "track_bass")]
 script = ExtResource("1_xkndl")
-money = 100
+money = 2500
 money_label = NodePath("lombard/Table/TextureButton3/PriceLabel")
 track_main = NodePath("ASP_MAIN")
 track_piano = NodePath("ASP_PIANO")
@@ -596,7 +629,7 @@ texture = SubResource("CanvasTexture_0yprl")
 [node name="Table" type="Node2D" parent="lombard"]
 
 [node name="Table_PC" type="Sprite2D" parent="lombard/Table"]
-z_index = 1
+z_index = 6
 texture_filter = 1
 position = Vector2(642, 359)
 scale = Vector2(5.01, 5)
@@ -790,7 +823,7 @@ offset_left = 6.6666665
 offset_top = 4.3101807
 offset_right = 75.666664
 offset_bottom = 27.31018
-text = "Take - 30$"
+text = "Take"
 label_settings = SubResource("LabelSettings_w7ht3")
 
 [node name="reject" type="TextureButton" parent="lombard/Character/model/chatbox"]
@@ -812,14 +845,15 @@ offset_bottom = 26.643515
 text = "Bargain"
 label_settings = SubResource("LabelSettings_hwsgv")
 
-[node name="inventory" type="Node2D" parent="." node_paths=PackedStringArray("Items")]
+[node name="inventory" type="Node2D" parent="." node_paths=PackedStringArray("Items", "CNBT")]
 position = Vector2(0, 720)
 script = ExtResource("17_cpsxm")
-Items = [NodePath("ShitCode/cell1/Item"), NodePath("ShitCode/cell2/Item"), NodePath("ShitCode/cell3/Item"), NodePath("ShitCode/cell4/Item"), NodePath("ShitCode/cell5/Item"), NodePath("ShitCode/cell6/Item"), NodePath("ShitCode/cell7/Item"), NodePath("ShitCode/cell8/Item")]
+Items = [NodePath("ShitCode/cell1/Item"), NodePath("ShitCode/cell2/Item"), NodePath("ShitCode/cell3/Item"), NodePath("ShitCode/cell5/Item"), NodePath("ShitCode/cell6/Item"), NodePath("ShitCode/cell7/Item")]
+CNBT = [NodePath("ShitCode/cell1"), NodePath("ShitCode/cell2"), NodePath("ShitCode/cell3"), NodePath("ShitCode/cell5"), NodePath("ShitCode/cell6"), NodePath("ShitCode/cell7")]
 
 [node name="bg" type="Sprite2D" parent="inventory"]
 scale = Vector2(5, 5)
-texture = ExtResource("17_0yprl")
+texture = SubResource("CanvasTexture_hwsgv")
 centered = false
 
 [node name="UpBtn1" type="TextureButton" parent="inventory"]
@@ -854,118 +888,193 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="ShitCode" type="Node2D" parent="inventory"]
+position = Vector2(640, 390)
 
 [node name="cell1" type="TextureButton" parent="inventory/ShitCode"]
-offset_left = 271.0
-offset_top = 280.0
-offset_right = 271.0
-offset_bottom = 280.0
+offset_left = -190.0
+offset_top = -135.99997
+offset_right = -160.0
+offset_bottom = -95.99997
 scale = Vector2(5, 5)
 pivot_offset = Vector2(15, 20)
 texture_normal = SubResource("CanvasTexture_w2501")
 
 [node name="Item" type="Sprite2D" parent="inventory/ShitCode/cell1"]
+visible = false
 position = Vector2(15, 14)
 scale = Vector2(0.35, 0.35)
 texture = SubResource("CanvasTexture_jsoai")
+
+[node name="faketaxi" type="Sprite2D" parent="inventory/ShitCode/cell1"]
+visible = false
+position = Vector2(14.799999, 31.199999)
+texture = SubResource("CanvasTexture_5he1h")
+
+[node name="Label" type="Label" parent="inventory/ShitCode/cell1/faketaxi"]
+offset_left = -8.999998
+offset_top = -2.5999994
+offset_right = 414.575
+offset_bottom = 149.4
+scale = Vector2(0.04, 0.04)
+text = "$500"
+label_settings = SubResource("LabelSettings_xwkxq")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="cell2" type="TextureButton" parent="inventory/ShitCode"]
-offset_left = 516.0
-offset_top = 280.0
-offset_right = 516.0
-offset_bottom = 280.0
+offset_left = -15.0
+offset_top = -135.99997
+offset_right = 15.0
+offset_bottom = -95.99997
 scale = Vector2(5, 5)
 pivot_offset = Vector2(15, 20)
-texture_normal = SubResource("CanvasTexture_w2501")
+texture_normal = SubResource("CanvasTexture_gebyw")
 
 [node name="Item" type="Sprite2D" parent="inventory/ShitCode/cell2"]
+visible = false
 position = Vector2(15, 14)
 scale = Vector2(0.35, 0.35)
 texture = SubResource("CanvasTexture_jsoai")
+
+[node name="faketaxi" type="Sprite2D" parent="inventory/ShitCode/cell2"]
+visible = false
+position = Vector2(14.799999, 31.199999)
+texture = SubResource("CanvasTexture_5he1h")
+
+[node name="Label" type="Label" parent="inventory/ShitCode/cell2/faketaxi"]
+offset_left = -8.999998
+offset_top = -2.5999994
+offset_right = 414.575
+offset_bottom = 149.4
+scale = Vector2(0.04, 0.04)
+text = "$500"
+label_settings = SubResource("LabelSettings_xwkxq")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="cell3" type="TextureButton" parent="inventory/ShitCode"]
-offset_left = 761.0
-offset_top = 280.0
-offset_right = 761.0
-offset_bottom = 280.0
+offset_left = 160.0
+offset_top = -135.99997
+offset_right = 190.0
+offset_bottom = -95.99997
 scale = Vector2(5, 5)
 pivot_offset = Vector2(15, 20)
-texture_normal = SubResource("CanvasTexture_w2501")
+texture_normal = SubResource("CanvasTexture_4my3f")
 
 [node name="Item" type="Sprite2D" parent="inventory/ShitCode/cell3"]
+visible = false
 position = Vector2(15, 14)
 scale = Vector2(0.35, 0.35)
 texture = SubResource("CanvasTexture_jsoai")
 
-[node name="cell4" type="TextureButton" parent="inventory/ShitCode"]
-offset_left = 1006.0
-offset_top = 280.0
-offset_right = 1006.0
-offset_bottom = 280.0
-scale = Vector2(5, 5)
-pivot_offset = Vector2(15, 20)
-texture_normal = SubResource("CanvasTexture_w2501")
+[node name="faketaxi" type="Sprite2D" parent="inventory/ShitCode/cell3"]
+visible = false
+position = Vector2(14.799999, 31.199999)
+texture = SubResource("CanvasTexture_5he1h")
 
-[node name="Item" type="Sprite2D" parent="inventory/ShitCode/cell4"]
-position = Vector2(15, 14)
-scale = Vector2(0.35, 0.35)
-texture = SubResource("CanvasTexture_jsoai")
+[node name="Label" type="Label" parent="inventory/ShitCode/cell3/faketaxi"]
+offset_left = -8.999998
+offset_top = -2.5999994
+offset_right = 414.575
+offset_bottom = 149.4
+scale = Vector2(0.04, 0.04)
+text = "$500"
+label_settings = SubResource("LabelSettings_xwkxq")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="cell5" type="TextureButton" parent="inventory/ShitCode"]
-offset_left = 271.0
-offset_top = 546.0
-offset_right = 271.0
-offset_bottom = 546.0
+offset_left = -190.0
+offset_top = 89.00003
+offset_right = -160.0
+offset_bottom = 129.00003
 scale = Vector2(5, 5)
 pivot_offset = Vector2(15, 20)
-texture_normal = SubResource("CanvasTexture_w2501")
+texture_normal = SubResource("CanvasTexture_aeq37")
 
 [node name="Item" type="Sprite2D" parent="inventory/ShitCode/cell5"]
+visible = false
 position = Vector2(15, 14)
 scale = Vector2(0.35, 0.35)
 texture = SubResource("CanvasTexture_jsoai")
+
+[node name="faketaxi" type="Sprite2D" parent="inventory/ShitCode/cell5"]
+visible = false
+position = Vector2(14.799999, 31.199999)
+texture = SubResource("CanvasTexture_5he1h")
+
+[node name="Label" type="Label" parent="inventory/ShitCode/cell5/faketaxi"]
+offset_left = -8.999998
+offset_top = -2.5999994
+offset_right = 414.575
+offset_bottom = 149.4
+scale = Vector2(0.04, 0.04)
+text = "$500"
+label_settings = SubResource("LabelSettings_xwkxq")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="cell6" type="TextureButton" parent="inventory/ShitCode"]
-offset_left = 516.0
-offset_top = 546.0
-offset_right = 516.0
-offset_bottom = 546.0
+offset_left = -15.0
+offset_top = 89.00003
+offset_right = 15.0
+offset_bottom = 129.00003
 scale = Vector2(5, 5)
 pivot_offset = Vector2(15, 20)
-texture_normal = SubResource("CanvasTexture_w2501")
+texture_normal = SubResource("CanvasTexture_suycs")
 
 [node name="Item" type="Sprite2D" parent="inventory/ShitCode/cell6"]
+visible = false
 position = Vector2(15, 14)
 scale = Vector2(0.35, 0.35)
 texture = SubResource("CanvasTexture_jsoai")
+
+[node name="faketaxi" type="Sprite2D" parent="inventory/ShitCode/cell6"]
+visible = false
+position = Vector2(14.799999, 31.199999)
+texture = SubResource("CanvasTexture_5he1h")
+
+[node name="Label" type="Label" parent="inventory/ShitCode/cell6/faketaxi"]
+offset_left = -8.999998
+offset_top = -2.5999994
+offset_right = 414.575
+offset_bottom = 149.4
+scale = Vector2(0.04, 0.04)
+text = "$500"
+label_settings = SubResource("LabelSettings_xwkxq")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="cell7" type="TextureButton" parent="inventory/ShitCode"]
-offset_left = 761.0
-offset_top = 546.0
-offset_right = 761.0
-offset_bottom = 546.0
+offset_left = 160.0
+offset_top = 89.00003
+offset_right = 190.0
+offset_bottom = 129.00003
 scale = Vector2(5, 5)
 pivot_offset = Vector2(15, 20)
-texture_normal = SubResource("CanvasTexture_w2501")
+texture_normal = SubResource("CanvasTexture_202ut")
 
 [node name="Item" type="Sprite2D" parent="inventory/ShitCode/cell7"]
+visible = false
 position = Vector2(15, 14)
 scale = Vector2(0.35, 0.35)
 texture = SubResource("CanvasTexture_jsoai")
 
-[node name="cell8" type="TextureButton" parent="inventory/ShitCode"]
-offset_left = 1006.0
-offset_top = 546.0
-offset_right = 1006.0
-offset_bottom = 546.0
-scale = Vector2(5, 5)
-pivot_offset = Vector2(15, 20)
-texture_normal = SubResource("CanvasTexture_w2501")
+[node name="faketaxi" type="Sprite2D" parent="inventory/ShitCode/cell7"]
+visible = false
+position = Vector2(14.799999, 31.199999)
+texture = SubResource("CanvasTexture_5he1h")
 
-[node name="Item" type="Sprite2D" parent="inventory/ShitCode/cell8"]
-position = Vector2(15, 14)
-scale = Vector2(0.35, 0.35)
-texture = SubResource("CanvasTexture_jsoai")
+[node name="Label" type="Label" parent="inventory/ShitCode/cell7/faketaxi"]
+offset_left = -8.999998
+offset_top = -2.5999994
+offset_right = 414.575
+offset_bottom = 149.4
+scale = Vector2(0.04, 0.04)
+text = "$500"
+label_settings = SubResource("LabelSettings_xwkxq")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="DEV" type="Node" parent="."]
 
@@ -1020,10 +1129,8 @@ libraries = {
 [connection signal="button_down" from="inventory/ShitCode/cell1" to="inventory" method="sellItem" binds= [0]]
 [connection signal="button_down" from="inventory/ShitCode/cell2" to="inventory" method="sellItem" binds= [1]]
 [connection signal="button_down" from="inventory/ShitCode/cell3" to="inventory" method="sellItem" binds= [2]]
-[connection signal="button_down" from="inventory/ShitCode/cell4" to="inventory" method="sellItem" binds= [3]]
-[connection signal="button_down" from="inventory/ShitCode/cell5" to="inventory" method="sellItem" binds= [4]]
-[connection signal="button_down" from="inventory/ShitCode/cell6" to="inventory" method="sellItem" binds= [5]]
-[connection signal="button_down" from="inventory/ShitCode/cell7" to="inventory" method="sellItem" binds= [6]]
-[connection signal="button_down" from="inventory/ShitCode/cell8" to="inventory" method="sellItem" binds= [7]]
+[connection signal="button_down" from="inventory/ShitCode/cell5" to="inventory" method="sellItem" binds= [3]]
+[connection signal="button_down" from="inventory/ShitCode/cell6" to="inventory" method="sellItem" binds= [4]]
+[connection signal="button_down" from="inventory/ShitCode/cell7" to="inventory" method="sellItem" binds= [5]]
 [connection signal="button_down" from="DEV/Panel/Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="DEV/Panel/Button2" to="." method="_on_button_2_button_down"]

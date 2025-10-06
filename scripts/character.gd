@@ -4,16 +4,16 @@ class_name CharacterBase
 
 var customer_messages = {
 	"enter_message": [
-		"[color=#000000]Hey! Look what I dug up in the attic.[b] Looks rare![/b]\n[i]I offer %PRICE%[/i][/color]",
-		"[color=#000000]Yo, got something [b][color=#ff0000]special[/color][/b] here! Could be worth a lot.[i]I offer $%PRICE%[/i][/color]",
-		"[color=#000000]Found this old thing, thought you might be interested.[i]I offer $%PRICE%[/i][/color]",
-		"[color=#000000]Check it out! My buddy said it’s valuable... maybe you can tell me?[i]I offer $%PRICE%[/i][/color]"
+		"[color=#000000]Hey! Look what I dug up in the attic.[b] Looks rare![/b]\n[b]I offer $%PRICE%[/b][/color]",
+		"[color=#000000]Yo, got something [b][color=#ff0000]special[/color][/b] here! Could be worth a lot.\n[b]I offer $%PRICE%[/b][/color]",
+		"[color=#000000]Found this old thing, thought you might be interested.\n[b]I offer $%PRICE%[/b][/color]",
+		"[color=#000000]Check it out! My buddy said it’s valuable... maybe you can tell me?\n[b]I offer $%PRICE%[/b][/color]"
 	],
 	"trade_message": [
-		"[color=#ff0000][b]Need cash fast![/b][/color] I can let it go for a little less...",
-		"[color=#ff0000]Come on, I trust you! Maybe I could bump the price a bit down?[/color]",
-		"[color=#ff0000][i]I’m kinda desperate here[/i], maybe we can work out a deal?[/color]",
-		"[color=#ff0000]If you give me a good offer, I’ll let it go [b]right now[/b]![/color]"
+		"[color=#ff0000][b]Need cash fast![/b] I can let it go for a little less...\n[b]I offer $%PRICE%[/b][/color]",
+		"[color=#ff0000]Come on, I trust you! Maybe I could bump the price a bit down?\n[b]I offer $%PRICE%[/b][/color]",
+		"[color=#ff0000][i]I’m kinda desperate here[/i], maybe we can work out a deal?\n[b]I offer $%PRICE%[/b][/color]",
+		"[color=#ff0000]If you give me a good offer, I’ll let it go [b]right now[/b]!\n[b]I offer $%PRICE%[/b][/color]"
 	],
 	"leave_message": [
 		"[b][color=#900000]Nah, not interested.[/color][/b]",
@@ -55,12 +55,11 @@ func _ready():
 	else:
 		push_warning("animation_player_path не задан!")
 
-func get_message(key: String):
+func get_message(key: String, price: int = 0):
 	if (customer_messages[key]):
-		return customer_messages[key].pick_random()
+		return String(customer_messages[key].pick_random()).replacen("%PRICE%", str(price))
 	else:
 		return "no_msg_" + key
-	pass
 
 func play_animation(name: String, custom_blend: float = -1.0, custom_speed: float = 1.0, from_end: bool = false):
 	await anim_player.animation_finished
@@ -77,11 +76,18 @@ func come_and_offer():
 	item.choose_random_item()
 	take_button.visible = true
 	reject_button.visible = true
-	chat_text.text = get_message("enter_message")
 	var avg_price = item.prices[item.current_index]
-	var price = (randi() % 100) + 1
+	var price
+	if randi_range(1, 4) == 1:
+		var AHHHHHHHH = int(avg_price / 100.0 * randi_range(1,10))
+		price = avg_price + (AHHHHHHHH)
+	else:
+		var AHHHHHHHH = int(avg_price / 100.0 * randi_range(1,10))
+		price = avg_price - (AHHHHHHHH)
+	if randi_range(0,100) <= 3:
+		price = price / randi_range(3,10)
 	offer_price = price
-	take_button.get_child(0).text = "Take - $" + str(price)
+	chat_text.text = get_message("enter_message", price)
 	anim_player.play("new_guy_coming")
 	await anim_player.animation_finished
 	chatbox.visible = true
@@ -90,7 +96,11 @@ func come_and_offer():
 
 func _on_take_button_down() -> void:
 	var mainnode = $"../.."
+	if $"../../inventory".Inventory.size() > 5:
+		return
 	if mainnode.updMoney(mainnode.money - offer_price) == 0:
+		take_button.visible = false
+		reject_button.visible = false
 		print("asd")
 		inventory.addItem(item)
 		item.hide_item()
@@ -104,13 +114,16 @@ func _on_take_button_down() -> void:
 
 
 func _on_reject_button_down() -> void:
-	var chance = randi() % 100
+	var avg_price = item.prices[item.current_index]
+	var minus = int((offer_price / 100.0) * randi_range(1,10))
+	var price = offer_price - minus
+	var chance = randi_range(1,3)
+	print(price)
+	print(minus)
 	print(chance)
-	if chance > 50:
-		chat_text.text = get_message("trade_message")
-		var price = (randi() % offer_price) + 1
+	if (avg_price / 3) * 2 < price and chance >= 2:
 		offer_price = price
-		take_button.get_child(0).text = "Take - $" + str(price)
+		chat_text.text = get_message("trade_message", price)
 	else:
 		take_button.visible = false
 		reject_button.visible = false
