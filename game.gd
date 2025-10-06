@@ -49,8 +49,14 @@ func _on_button_button_down() -> void:
 
 func set_active_track(new_track: int):
 	var requested_track: AudioStreamPlayer = [track_main, track_piano, track_bass][new_track]
+	
 	if current_track == requested_track:
 		return
+	if requested_track == track_main:
+		$lombard/Character.typing_muted = false
+	else: 
+		$lombard/Character.typing_muted = true
+	
 	previous_track = current_track
 	current_track = requested_track
 	if previous_track == null:

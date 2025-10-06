@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bng3gu3ma8e4" path="res://assets/coll_btn.png" id="6_elkpi"]
 [ext_resource type="FontFile" uid="uid://dh2d8oldbj8i7" path="res://assets/Jersey10-Regular.ttf" id="7_0yprl"]
 [ext_resource type="Texture2D" uid="uid://bd5n5ajgxc71j" path="res://assets/money counter.png" id="7_qjyg3"]
-[ext_resource type="Texture2D" uid="uid://pmr6sycklt4r" path="res://assets/items/item_bust.png" id="8_elkpi"]
+[ext_resource type="Texture2D" uid="uid://pmr6sycklt4r" path="res://assets/item_bust.png" id="8_elkpi"]
 [ext_resource type="Script" uid="uid://bcrechktnlgfa" path="res://scripts/item.gd" id="8_yyih5"]
 [ext_resource type="Script" uid="uid://cumasmawgccyt" path="res://scripts/character.gd" id="9_yx171"]
 [ext_resource type="FontFile" uid="uid://bdcw5yd0e2h1" path="res://assets/DigitalPixel-Regular.otf" id="10_jsoai"]
@@ -962,7 +962,7 @@ take_button = NodePath("model/chatbox/Take")
 reject_button = NodePath("model/chatbox/reject")
 chatbox = NodePath("model/chatbox")
 inventory = NodePath("../../inventory")
-type_speed = 100.0
+type_speed = null
 
 [node name="model" type="Sprite2D" parent="lombard/Character"]
 texture_filter = 1

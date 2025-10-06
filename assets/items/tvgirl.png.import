@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjn3tkkiftjlk"
-path="res://.godot/imported/item_kuvshin.png-561b4504642d1d6a8b9533dd096a588c.ctex"
+uid="uid://b2jd4xvwmbvnv"
+path="res://.godot/imported/tvgirl.png-5701e96c5be314f7cc16a44a9501357e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/item_kuvshin.png"
-dest_files=["res://.godot/imported/item_kuvshin.png-561b4504642d1d6a8b9533dd096a588c.ctex"]
+source_file="res://assets/items/tvgirl.png"
+dest_files=["res://.godot/imported/tvgirl.png-5701e96c5be314f7cc16a44a9501357e.ctex"]
 
 [params]
 

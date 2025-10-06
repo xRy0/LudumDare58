@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pmr6sycklt4r"
-path="res://.godot/imported/item_bust.png-0b0d7e45a54fc36fa5ceb2b1ac7a44a8.ctex"
+uid="uid://cbba28em1j54n"
+path="res://.godot/imported/item_kniga.png-4c0ed00f87b6a403becac54ecf5a38f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/item_bust.png"
-dest_files=["res://.godot/imported/item_bust.png-0b0d7e45a54fc36fa5ceb2b1ac7a44a8.ctex"]
+source_file="res://assets/items/item_kniga.png"
+dest_files=["res://.godot/imported/item_kniga.png-4c0ed00f87b6a403becac54ecf5a38f1.ctex"]
 
 [params]
 

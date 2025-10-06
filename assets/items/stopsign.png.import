@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsu0xgkoakb5b"
-path="res://.godot/imported/item_svitok.png-eabf4240c3b1bf877fd3183f04a994fc.ctex"
+uid="uid://cfudo1ayk56uf"
+path="res://.godot/imported/stopsign.png-57c1ba875ece2d60c169d9a70b0e7e1c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/item_svitok.png"
-dest_files=["res://.godot/imported/item_svitok.png-eabf4240c3b1bf877fd3183f04a994fc.ctex"]
+source_file="res://assets/items/stopsign.png"
+dest_files=["res://.godot/imported/stopsign.png-57c1ba875ece2d60c169d9a70b0e7e1c.ctex"]
 
 [params]
 

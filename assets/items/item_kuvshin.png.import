@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8572cdrecdlx"
-path="res://.godot/imported/item_chasi.png-2fed0e83f1956f47d6ec68df0d732c6f.ctex"
+uid="uid://bjn3tkkiftjlk"
+path="res://.godot/imported/item_kuvshin.png-ddc1d5c66d15e3078200febaa31ca0b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/item_chasi.png"
-dest_files=["res://.godot/imported/item_chasi.png-2fed0e83f1956f47d6ec68df0d732c6f.ctex"]
+source_file="res://assets/items/item_kuvshin.png"
+dest_files=["res://.godot/imported/item_kuvshin.png-ddc1d5c66d15e3078200febaa31ca0b9.ctex"]
 
 [params]
 

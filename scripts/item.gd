@@ -16,15 +16,32 @@ var descriptions: Array[String] = []
 
 func _ready():
 	textures = [
-		preload("res://assets/item_bust.png"),
-		preload("res://assets/item_chasi.png"),
-		preload("res://assets/item_kniga.png"),
-		preload("res://assets/item_krujka.png"),
-		preload("res://assets/item_kuvshin.png"),
-		preload("res://assets/item_svitok.png")
-	]
-
-	prices = [300, 500, 150, 50, 350, 450]
+		preload("res://assets/items/item_bust.png"),
+		preload("res://assets/items/item_chasi.png"),
+		preload("res://assets/items/item_kniga.png"),
+		preload("res://assets/items/item_krujka.png"),
+		preload("res://assets/items/item_kuvshin.png"),
+		preload("res://assets/items/item_svitok.png"),
+		preload("res://assets/items/hat.png"),
+		preload("res://assets/items/stopsign.png"),
+		preload("res://assets/items/Kino.png"),
+		preload("res://assets/items/monet.png"),
+		preload("res://assets/items/tvgirl.png"),
+		preload("res://assets/items/unknown disk box.png"),
+		preload("res://assets/items/unknown disk note.png"),
+		preload("res://assets/items/unknown disk.png"),
+		preload("res://assets/items/vase-ch1.png"),
+		preload("res://assets/items/vase-ch2.png"),
+		preload("res://assets/items/vase-ch3.png"),
+		preload("res://assets/items/switch.png"),
+		preload("res://assets/items/box360.png"),
+		preload("res://assets/items/ps3.png"),
+		preload("res://assets/items/gameboy.png")
+		]
+			#                              v hat here
+	prices = [300, 500, 150, 50, 350, 450, 50, 40, 450, 400, 350, 50, 50, 50,
+			  50, 50, 50, 550, 500, 500]
+			# ^ vase      ^ consoles
 	descriptions = [
 		"Bust of a famous person",
 		"Antique clock",
@@ -32,6 +49,20 @@ func _ready():
 		"Beer mug",
 		"Strange jug",
 		"Elder scroll",
+		"Hat",
+		"Stop sign",
+		"Kino Vinyl",
+		"Forbidden Vinyl",
+		"TVGirl Vinyl",
+		"Unknown Disk Box",
+		"Unknown Disk Note",
+		"Unknown Vinyl Disk",
+		"Vase Shard",
+		"Vase Shard",
+		"Vase Shard",
+		"Funtendo Console",
+		"MC xStep 365 Console",
+		"SP3 Console"
 	]
 
 	# Убедимся, что массивы синхронизированы по длине
