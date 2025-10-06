@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://wv55ssu6ivls"]
+[gd_scene load_steps=56 format=3 uid="uid://wv55ssu6ivls"]
 
 [ext_resource type="Script" uid="uid://be34ymwo5ydau" path="res://game.gd" id="1_xkndl"]
 [ext_resource type="Texture2D" uid="uid://bmh712irsy8ls" path="res://assets/Sprite-0001.png" id="2_2vekm"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://pmr6sycklt4r" path="res://assets/item_bust.png" id="8_elkpi"]
 [ext_resource type="Script" uid="uid://bcrechktnlgfa" path="res://scripts/item.gd" id="8_yyih5"]
 [ext_resource type="Script" uid="uid://cumasmawgccyt" path="res://scripts/character.gd" id="9_yx171"]
+[ext_resource type="FontFile" uid="uid://bdcw5yd0e2h1" path="res://assets/DigitalPixel-Regular.otf" id="10_jsoai"]
 [ext_resource type="Texture2D" uid="uid://dm4a58dfgyngk" path="res://assets/dude.png" id="12_0yprl"]
 [ext_resource type="Texture2D" uid="uid://g5an5p4ateu4" path="res://assets/door.png" id="13_0yprl"]
 [ext_resource type="Texture2D" uid="uid://t2p45ckid81" path="res://assets/room-wp.png" id="13_elkpi"]
@@ -18,12 +19,19 @@
 [ext_resource type="FontFile" uid="uid://ctwqafmt7eden" path="res://assets/W95FA.otf" id="16_elkpi"]
 [ext_resource type="Texture2D" uid="uid://cq51p3iyyarp1" path="res://assets/inv_bg.png" id="17_0yprl"]
 [ext_resource type="Script" uid="uid://cykaun4on7pp6" path="res://scripts/inv.gd" id="17_cpsxm"]
+[ext_resource type="Texture2D" uid="uid://da6een47cr4tu" path="res://assets/take_btn.png" id="18_bisgb"]
 [ext_resource type="Texture2D" uid="uid://gkgglnlxwtbf" path="res://assets/inv_org_btn.png" id="18_bvhbk"]
+[ext_resource type="FontFile" uid="uid://cp0r36v1xvfce" path="res://assets/faith.otf" id="18_w7ht3"]
 [ext_resource type="Texture2D" uid="uid://bnlhpj3gnyamg" path="res://assets/inv_gr_btn.png" id="19_cpsxm"]
+[ext_resource type="Texture2D" uid="uid://cna6tppqv3i0y" path="res://assets/reject_btn.png" id="19_y5ctq"]
 [ext_resource type="Texture2D" uid="uid://bi5w82s64v4dq" path="res://assets/cell.png" id="21_hmewc"]
 [ext_resource type="AudioStream" uid="uid://crxs0qe5e1imu" path="res://assets/snd/main.ogg" id="22_7ged1"]
-[ext_resource type="AudioStream" uid="uid://vun6ngyebolx" path="res://assets/snd/only_main.ogg" id="23_w2501"]
+[ext_resource type="AudioStream" uid="uid://eb5knf8x47ul" path="res://assets/snd/only_main.ogg" id="23_w2501"]
 [ext_resource type="AudioStream" uid="uid://dkahmfe1efaxd" path="res://assets/snd/only_bass.ogg" id="24_jsoai"]
+
+[sub_resource type="Curve" id="Curve_w2501"]
+_data = [Vector2(0.0022727288, 0), 0.0, 0.30371106, 0, 0, Vector2(0.5, 0.50086284), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.398333, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_0yprl"]
 diffuse_texture = ExtResource("2_2vekm")
@@ -32,7 +40,7 @@ texture_filter = 1
 [sub_resource type="LabelSettings" id="LabelSettings_yyih5"]
 line_spacing = -7.26
 font = ExtResource("16_elkpi")
-font_size = 20
+font_size = 24
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_wuoie"]
@@ -55,8 +63,8 @@ texture_filter = 1
 
 [sub_resource type="LabelSettings" id="LabelSettings_yhmtn"]
 line_spacing = 0.0
-font = ExtResource("16_elkpi")
-font_size = 233
+font = ExtResource("10_jsoai")
+font_size = 138
 font_color = Color(0.011764706, 0.011764706, 0.011764706, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_hmewc"]
@@ -210,88 +218,6 @@ tracks/11/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_yhmtn"]
-resource_name = "guy_leave"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.46666667, 1),
-"transitions": PackedFloat32Array(1.8025012, 3.7321332),
-"update": 0,
-"values": [Vector2(640, 361.00003), Vector2(1919.9999, 360.00003)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_lvtmh"]
-resource_name = "item_buy"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../../Table/Item/TableItem:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(341.00003, 458), Vector2(80.00006, 848.99994)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../../Table/Item/TableItem:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_2vekm"]
-resource_name = "new_guy_coming"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.3789293, 0.37892908),
-"update": 0,
-"values": [Vector2(295.00003, 359), Vector2(640, 363)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0]
-}
-
 [sub_resource type="Animation" id="Animation_wuoie"]
 resource_name = "down"
 tracks/0/type = "value"
@@ -367,6 +293,88 @@ tracks/5/keys = {
 "values": [0.0, 0.0, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_yhmtn"]
+resource_name = "guy_leave"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.46666667, 1),
+"transitions": PackedFloat32Array(1.8025012, 3.7321332),
+"update": 0,
+"values": [Vector2(640, 360), Vector2(1920, 360)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_lvtmh"]
+resource_name = "item_buy"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Table/Item/TableItem:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(341.00003, 458), Vector2(80.00006, 848.99994)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../Table/Item/TableItem:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_2vekm"]
+resource_name = "new_guy_coming"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.3789293, 0.37892908),
+"update": 0,
+"values": [Vector2(295, 360), Vector2(640, 360)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yx171"]
 _data = {
 &"RESET": SubResource("Animation_yx171"),
@@ -379,6 +387,22 @@ _data = {
 [sub_resource type="CanvasTexture" id="CanvasTexture_lvtmh"]
 diffuse_texture = ExtResource("13_wuoie")
 texture_filter = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_y5ctq"]
+diffuse_texture = ExtResource("18_bisgb")
+texture_filter = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_w7ht3"]
+font = ExtResource("7_0yprl")
+font_size = 19
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_8ktx7"]
+diffuse_texture = ExtResource("19_y5ctq")
+texture_filter = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_hwsgv"]
+font = ExtResource("7_0yprl")
+font_size = 19
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_7ged1"]
 resource_local_to_scene = true
@@ -396,12 +420,170 @@ texture_filter = 1
 [sub_resource type="CanvasTexture" id="CanvasTexture_jsoai"]
 texture_filter = 1
 
+[sub_resource type="Animation" id="Animation_jsoai"]
+resource_name = "down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lombard:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -720)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lombard:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("inventory:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(0, 720), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("inventory:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("lombard/Table/TextureButton3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.9227, 1),
+"transitions": PackedFloat32Array(1, 2, 1),
+"update": 0,
+"values": [Vector2(895.00006, 620), Vector2(895.00006, 620), Vector2(895, 734.585)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("lombard/Table/TextureButton3:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.9227, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_bisgb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lombard:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lombard:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("inventory:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 720)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("inventory:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("lombard/Table/TextureButton3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(895.00006, 620)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("lombard/Table/TextureButton3:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y5ctq"]
+_data = {
+&"RESET": SubResource("Animation_bisgb"),
+&"down": SubResource("Animation_jsoai")
+}
+
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("money_label", "track_main", "track_piano", "track_bass")]
 script = ExtResource("1_xkndl")
+money = 100
 money_label = NodePath("lombard/Table/TextureButton3/PriceLabel")
 track_main = NodePath("ASP_MAIN")
 track_piano = NodePath("ASP_PIANO")
 track_bass = NodePath("ASP_BASS")
+fade_curve = SubResource("Curve_w2501")
 
 [node name="Background" type="Sprite2D" parent="."]
 visible = false
@@ -422,22 +604,21 @@ texture = ExtResource("3_lvtmh")
 
 [node name="Name" type="Label" parent="lombard/Table/Table_PC"]
 texture_filter = 1
-offset_left = 24.719315
-offset_top = -34.295258
-offset_right = 186.10857
-offset_bottom = 33.683044
+offset_left = 24.950104
+offset_top = -34.2
+offset_right = 186.33939
+offset_bottom = 33.7783
 scale = Vector2(0.475, 0.475)
-text = "Item name"
+text = "Hello!"
 label_settings = SubResource("LabelSettings_yyih5")
 autowrap_mode = 2
 
 [node name="Price" type="Label" parent="lombard/Table/Table_PC"]
-offset_left = 24.719315
-offset_top = 2.4066925
-offset_right = 186.10857
-offset_bottom = 30.273575
+offset_left = 22.754496
+offset_top = 1.6399904
+offset_right = 184.14378
+offset_bottom = 29.506872
 scale = Vector2(0.475, 0.475)
-text = "avg price - $100"
 label_settings = SubResource("LabelSettings_yyih5")
 autowrap_mode = 2
 
@@ -515,12 +696,12 @@ stretch_mode = 0
 
 [node name="PriceLabel" type="Label" parent="lombard/Table/TextureButton3"]
 layout_mode = 0
-offset_left = 13.199985
-offset_top = 2.600003
-offset_right = 838.3367
-offset_bottom = 229.6
-scale = Vector2(0.072, 0.058)
-text = "1111111111"
+offset_left = 13.799988
+offset_top = 3.5999951
+offset_right = 1297.8
+offset_bottom = 253.59999
+scale = Vector2(0.051164053, 0.05004382)
+text = "0"
 label_settings = SubResource("LabelSettings_yhmtn")
 
 [node name="Item" type="Node2D" parent="lombard/Table" node_paths=PackedStringArray("current_texture", "current_price", "current_description")]
@@ -585,29 +766,54 @@ offset_right = 208.929
 offset_bottom = 96.658005
 scale = Vector2(0.25, 0.25)
 theme_override_fonts/normal_font = ExtResource("16_elkpi")
+theme_override_fonts/bold_font = ExtResource("7_0yprl")
+theme_override_fonts/italics_font = ExtResource("18_w7ht3")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 29
+theme_override_font_sizes/italics_font_size = 16
 bbcode_enabled = true
-text = "[color=#000000]Йоу чувак, зацени [b]ЭТО
-[/b]Отрыл на хате у своей
-бабули, выглядит [b][color=#ff0000]дорого[/color][/b][/color]"
+text = "[color=#000000]I forgor what i wanted to say[/color]"
 
-[node name="Take" type="Button" parent="lombard/Character/model/chatbox"]
+[node name="Take" type="TextureButton" parent="lombard/Character/model/chatbox"]
 offset_left = -59.600002
 offset_top = -18.493057
 offset_right = 35.399998
 offset_bottom = 12.506943
 scale = Vector2(0.3, 0.3)
-text = "Взять - $50"
+texture_normal = SubResource("CanvasTexture_y5ctq")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="reject" type="Button" parent="lombard/Character/model/chatbox"]
+[node name="Label" type="Label" parent="lombard/Character/model/chatbox/Take"]
+layout_mode = 0
+offset_left = 6.6666665
+offset_top = 4.3101807
+offset_right = 75.666664
+offset_bottom = 27.31018
+text = "Take - 30$"
+label_settings = SubResource("LabelSettings_w7ht3")
+
+[node name="reject" type="TextureButton" parent="lombard/Character/model/chatbox"]
 offset_left = -22.8
 offset_top = -18.493053
 offset_right = 72.2
 offset_bottom = 12.506947
 scale = Vector2(0.3, 0.3)
-text = "Отказать"
+texture_normal = SubResource("CanvasTexture_8ktx7")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="lombard/Character/model/chatbox/reject"]
+layout_mode = 0
+offset_left = 6.6666665
+offset_top = 3.643514
+offset_right = 57.666668
+offset_bottom = 26.643515
+text = "Bargain"
+label_settings = SubResource("LabelSettings_hwsgv")
 
 [node name="inventory" type="Node2D" parent="." node_paths=PackedStringArray("Items")]
-position = Vector2(1, 721)
+position = Vector2(0, 720)
 script = ExtResource("17_cpsxm")
 Items = [NodePath("ShitCode/cell1/Item"), NodePath("ShitCode/cell2/Item"), NodePath("ShitCode/cell3/Item"), NodePath("ShitCode/cell4/Item"), NodePath("ShitCode/cell5/Item"), NodePath("ShitCode/cell6/Item"), NodePath("ShitCode/cell7/Item"), NodePath("ShitCode/cell8/Item")]
 
@@ -764,6 +970,7 @@ texture = SubResource("CanvasTexture_jsoai")
 [node name="DEV" type="Node" parent="."]
 
 [node name="Panel" type="Panel" parent="DEV"]
+visible = false
 z_index = 4096
 offset_left = 1080.0
 offset_top = 2.0
@@ -799,8 +1006,14 @@ autoplay = true
 stream = ExtResource("24_jsoai")
 autoplay = true
 
+[node name="SceneAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_y5ctq")
+}
+
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="button_down" from="lombard/Table/InventoryButton" to="." method="_on_inventory_button_button_down"]
+[connection signal="button_down" from="lombard/Table/CollectionButton2" to="." method="_on_collection_button_2_button_down"]
 [connection signal="button_down" from="lombard/Character/model/chatbox/Take" to="lombard/Character" method="_on_take_button_down"]
 [connection signal="button_down" from="lombard/Character/model/chatbox/reject" to="lombard/Character" method="_on_reject_button_down"]
 [connection signal="button_down" from="inventory/UpBtn1" to="inventory" method="_on_up_btn_1_button_down"]

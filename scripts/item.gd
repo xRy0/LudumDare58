@@ -26,12 +26,12 @@ func _ready():
 
 	prices = [300, 500, 150, 50, 350, 450]
 	descriptions = [
-		"Бюст известной личности",
-		"Старинные часы",
-		"Ветхая книга",
-		"Пивная кружка",
-		"Странный кувшин",
-		"Редкий свиток",
+		"Bust of a famous person",
+		"Antique clock",
+		"Fragile book",
+		"Beer mug",
+		"Strange jug",
+		"Elder scroll",
 	]
 
 	# Убедимся, что массивы синхронизированы по длине

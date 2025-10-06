@@ -2,18 +2,18 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://ctwqafmt7eden"
-path="res://.godot/imported/W95FA.otf-4ccea9f6e7104a2ad33dccef857a1403.fontdata"
+uid="uid://cp0r36v1xvfce"
+path="res://.godot/imported/faith.otf-ce3c9b4a88fa6be40e9c03ead820053c.fontdata"
 
 [deps]
 
-source_file="res://assets/W95FA.otf"
-dest_files=["res://.godot/imported/W95FA.otf-4ccea9f6e7104a2ad33dccef857a1403.fontdata"]
+source_file="res://assets/faith.otf"
+dest_files=["res://.godot/imported/faith.otf-ce3c9b4a88fa6be40e9c03ead820053c.fontdata"]
 
 [params]
 
 Rendering=null
-antialiasing=0
+antialiasing=1
 generate_mipmaps=false
 disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
@@ -30,12 +30,7 @@ Fallbacks=null
 fallbacks=[]
 Compress=null
 compress=true
-preload=[{
-"chars": [],
-"glyphs": [],
-"name": "Новая конфигурация",
-"size": Vector2i(16, 0)
-}]
+preload=[]
 language_support={}
 script_support={}
 opentype_features={}

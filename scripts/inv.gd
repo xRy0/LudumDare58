@@ -16,6 +16,8 @@ func addItem(item: Item):
 func sellItem(id: int) -> void:
 	print(id)
 	var item = Inventory.pop_at(page*8+id)
+	if (not item):
+		return;
 	updInv()
 	var mainnode = $".."
 	mainnode.updMoney(mainnode.money + $"../lombard/Table/Item".prices[item])
@@ -40,4 +42,5 @@ func updInv():
 
 func _on_up_btn_1_button_down() -> void:
 	$"../lombard/Character/model/AnimationPlayer".play_backwards("down")
+	$"..".set_active_track(0)
 	pass # Replace with function body.
