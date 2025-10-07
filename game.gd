@@ -207,5 +207,6 @@ func _on_game_start_button_down() -> void:
 	previous_track = track_bass
 	current_track.volume_db = 0.0 if sound_enabled else -80.0
 	await sleep(0.5)
+	$lombard/Table/VersionLabel.visible = false
 	$lombard/Character.come_and_offer()
 	pass # Replace with function body.

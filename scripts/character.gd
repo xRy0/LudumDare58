@@ -67,18 +67,19 @@ var display_text: String = ""
 var i = 0
 var typing = false
 var typing_muted = false
+var typing_manual_disabled = false
 var male_sound_paths = [
-	"res://assets/snd/TXT/SND_MAN_TXT1.ogg",
-	"res://assets/snd/TXT/SND_MAN_TXT2.ogg",
-	"res://assets/snd/TXT/SND_MAN_TXT3.ogg",
-	"res://assets/snd/TXT/SND_MAN_TXT4.ogg"
+	preload("res://assets/snd/TXT/SND_MAN_TXT1.ogg"),
+	preload("res://assets/snd/TXT/SND_MAN_TXT2.ogg"),
+	preload("res://assets/snd/TXT/SND_MAN_TXT3.ogg"),
+	preload("res://assets/snd/TXT/SND_MAN_TXT4.ogg")
 ]
 
 var female_sound_paths = [
-	"res://assets/snd/TXT/SND_WOM_TXT1.ogg",
-	"res://assets/snd/TXT/SND_WOM_TXT2.ogg",
-	"res://assets/snd/TXT/SND_WOM_TXT3.ogg",
-	"res://assets/snd/TXT/SND_WOM_TXT4.ogg"
+	preload("res://assets/snd/TXT/SND_WOM_TXT1.ogg"),
+	preload("res://assets/snd/TXT/SND_WOM_TXT2.ogg"),
+	preload("res://assets/snd/TXT/SND_WOM_TXT3.ogg"),
+	preload("res://assets/snd/TXT/SND_WOM_TXT4.ogg")
 ]
 
 func start_typing(new_text: String):
@@ -90,8 +91,7 @@ func start_typing(new_text: String):
 	typing_loop()
 
 func play_type_snd():
-	if typing_muted or not $"../..".sound_enabled:
-		print(typing_muted, not $"../..".sound_enabled)
+	if typing_muted or not $"../..".sound_enabled or typing_manual_disabled:
 		return
 	if typer_sounds == null:
 		print("no typer_sounds instance")
@@ -101,8 +101,8 @@ func play_type_snd():
 	if snd_list.is_empty():
 		return
 	
-	var random_sound_path = snd_list.pick_random()
-	var random_sound: AudioStream = load(random_sound_path)
+	var random_sound: AudioStream = snd_list.pick_random()
+	typer_sounds.stop()
 	typer_sounds.stream = random_sound
 	typer_sounds.pitch_scale = randf_range(1, 1.20) if cur_customer.voice == "male" else randf_range(0.70, 1)
 	typer_sounds.volume_db = -5.0
@@ -157,9 +157,15 @@ func stop_animation():
 	if anim_player:
 		anim_player.stop()
 
+func check_if_can_take():
+	var mainnode = $"../.."
+	return $"../../inventory".Inventory.size() > 5 or item.prices[item.current_index] > mainnode.money
+
 func come_and_offer():
+	var mainnode = $"../.."
+	item.choose_random_item()
 	var PIZDEC = CanvasTexture.new()
-	if $"../../inventory".Inventory.size() > 5:
+	if check_if_can_take():
 		PIZDEC.diffuse_texture = load("res://assets/take_btn_dis.png")
 		PIZDEC.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 		$model/chatbox/Take.texture_normal = PIZDEC
@@ -176,7 +182,6 @@ func come_and_offer():
 	CUNT.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	$model.texture = CUNT
 	
-	item.choose_random_item()
 	take_button.visible = true
 	reject_button.visible = true
 	var avg_price = item.prices[item.current_index]
@@ -201,6 +206,11 @@ func _on_take_button_down() -> void:
 	var mainnode = $"../.."
 	if $"../../inventory".Inventory.size() > 5:
 		$"../..".playsfx("reject", false)
+		$"../../SceneAnimator".play("check_inv")
+		return
+	if item.prices[item.current_index] > mainnode.money:
+		$"../..".playsfx("reject", false)
+		$"../../SceneAnimator".play("no_money")
 		return
 	if mainnode.updMoney(mainnode.money - offer_price) == 0:
 		take_button.visible = false
@@ -243,4 +253,9 @@ func _on_reject_button_down() -> void:
 		chatbox.visible = false
 		item.hide_item()
 		come_and_offer()
+	pass # Replace with function body.
+
+
+func _on_voice_button_toggled(toggled_on: bool) -> void:
+	typing_manual_disabled = not toggled_on
 	pass # Replace with function body.

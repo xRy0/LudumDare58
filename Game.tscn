@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://wv55ssu6ivls"]
+[gd_scene load_steps=100 format=3 uid="uid://wv55ssu6ivls"]
 
 [ext_resource type="Script" uid="uid://be34ymwo5ydau" path="res://game.gd" id="1_xkndl"]
 [ext_resource type="Texture2D" uid="uid://bmh712irsy8ls" path="res://assets/Sprite-0001.png" id="2_2vekm"]
@@ -23,10 +23,10 @@
 [ext_resource type="FontFile" uid="uid://cp0r36v1xvfce" path="res://assets/faith.otf" id="18_w7ht3"]
 [ext_resource type="Texture2D" uid="uid://bnlhpj3gnyamg" path="res://assets/inv_gr_btn.png" id="19_cpsxm"]
 [ext_resource type="Texture2D" uid="uid://cna6tppqv3i0y" path="res://assets/reject_btn.png" id="19_y5ctq"]
-[ext_resource type="AudioStream" uid="uid://crxs0qe5e1imu" path="res://assets/snd/main.ogg" id="22_7ged1"]
+[ext_resource type="AudioStream" uid="uid://bdt6h7fqo6p4v" path="res://assets/snd/main.ogg" id="22_7ged1"]
 [ext_resource type="Texture2D" uid="uid://72uddoo758hx" path="res://assets/inv_gb.png" id="22_w7ht3"]
-[ext_resource type="AudioStream" uid="uid://eb5knf8x47ul" path="res://assets/snd/only_main.ogg" id="23_w2501"]
-[ext_resource type="AudioStream" uid="uid://dkahmfe1efaxd" path="res://assets/snd/only_bass.ogg" id="24_jsoai"]
+[ext_resource type="AudioStream" uid="uid://dekr40uxyq07t" path="res://assets/snd/only_main.ogg" id="23_w2501"]
+[ext_resource type="AudioStream" uid="uid://ce2h3f5lh2rrg" path="res://assets/snd/only_bass.ogg" id="24_jsoai"]
 [ext_resource type="Texture2D" uid="uid://drm2f6lf7fokm" path="res://assets/items/cup_music.png" id="25_5he1h"]
 [ext_resource type="Texture2D" uid="uid://bxn4e16l5h6ul" path="res://assets/EMPTYBLYAT.png" id="25_8ktx7"]
 [ext_resource type="Texture2D" uid="uid://3n5w3so50g00" path="res://assets/chel.png" id="26_8ktx7"]
@@ -38,6 +38,8 @@
 [ext_resource type="Texture2D" uid="uid://c14aag0gpvjv5" path="res://assets/snd_disabled.png" id="34_202ut"]
 [ext_resource type="Texture2D" uid="uid://bpa8jblnbcs6g" path="res://assets/items/cup_gaming.png" id="35_hxy8k"]
 [ext_resource type="Texture2D" uid="uid://bo4qfatxo5i38" path="res://assets/items/FINAL.png" id="36_2t1a5"]
+[ext_resource type="Texture2D" uid="uid://dnx4so0nvojpa" path="res://assets/snd_voices_disabled.png" id="39_2t1a5"]
+[ext_resource type="Texture2D" uid="uid://cmevrramx1tnl" path="res://assets/snd_voices_enabled.png" id="40_8576b"]
 
 [sub_resource type="Curve" id="Curve_w2501"]
 _data = [Vector2(0.0022727288, 0), 0.0, 0.30371106, 0, 0, Vector2(0.5, 0.50086284), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.398333, 0.0, 0, 0]
@@ -61,12 +63,16 @@ texture_filter = 1
 font = ExtResource("7_0yprl")
 font_size = 150
 
+[sub_resource type="LabelSettings" id="LabelSettings_8576b"]
+font = ExtResource("7_0yprl")
+font_size = 150
+
 [sub_resource type="CanvasTexture" id="CanvasTexture_wuoie"]
 resource_local_to_scene = true
 diffuse_texture = ExtResource("5_qjyg3")
 texture_filter = 1
 
-[sub_resource type="LabelSettings" id="LabelSettings_wuoie"]
+[sub_resource type="LabelSettings" id="LabelSettings_2t1a5"]
 font = ExtResource("7_0yprl")
 font_size = 65
 font_color = Color(0.06666667, 0.06666667, 0.06666667, 1)
@@ -74,6 +80,11 @@ font_color = Color(0.06666667, 0.06666667, 0.06666667, 1)
 [sub_resource type="CanvasTexture" id="CanvasTexture_bvhbk"]
 diffuse_texture = ExtResource("6_elkpi")
 texture_filter = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_wuoie"]
+font = ExtResource("7_0yprl")
+font_size = 65
+font_color = Color(0.06666667, 0.06666667, 0.06666667, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_cpsxm"]
 diffuse_texture = ExtResource("7_qjyg3")
@@ -636,6 +647,30 @@ tracks/9/keys = {
 "update": 0,
 "values": [Vector2(15, 750)]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("lombard/Table/TextureButton3/PriceLabel:label_settings:font_color")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.011764706, 0.011764706, 0.011764706, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("lombard/Table/InventoryButton/InventoryLabel:label_settings:font_color")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.06666667, 0.06666667, 0.06666667, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_jsoai"]
 resource_name = "down"
@@ -901,14 +936,82 @@ tracks/2/keys = {
 "values": [Vector2(895, 750), Vector2(895, 620)]
 }
 
+[sub_resource type="Animation" id="Animation_2t1a5"]
+resource_name = "no_money"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lombard/Table/TextureButton3/PriceLabel:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333335, 0.76666665, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.011764706, 0.011764706, 0.011764706, 1), Color(0.70980394, 0.019607844, 0.019607844, 1), Color(0.71, 0.021299979, 0.021299979, 1), Color(0.011764706, 0.011764706, 0.011764706, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lombard/Table/TextureButton3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 0.6, 1),
+"transitions": PackedFloat32Array(0.17677663, 1, 3.3635848, 1),
+"update": 0,
+"values": [Vector2(895, 620), Vector2(895, 600), Vector2(895, 600), Vector2(895, 620)]
+}
+
+[sub_resource type="Animation" id="Animation_8576b"]
+resource_name = "check_inv"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lombard/Table/InventoryButton:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.5, 0.76666665, 1),
+"transitions": PackedFloat32Array(0.25, 4, 0.25, 4, 1),
+"update": 0,
+"values": [Vector2(15, 620), Vector2(15, 600), Vector2(15, 620), Vector2(15, 600), Vector2(15, 620)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lombard/Table/InventoryButton/InventoryLabel:label_settings:font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.73333335, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.06666667, 0.06666667, 0.06666667, 1), Color(0.56, 0.056000013, 0, 1), Color(0.56078434, 0.05490196, 0, 1), Color(0.06666667, 0.06666667, 0.06666667, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y5ctq"]
 _data = {
 &"RESET": SubResource("Animation_bisgb"),
+&"check_inv": SubResource("Animation_8576b"),
 &"down": SubResource("Animation_jsoai"),
 &"down_collection": SubResource("Animation_8ktx7"),
+&"no_money": SubResource("Animation_2t1a5"),
 &"side_to_collection": SubResource("Animation_hwsgv"),
 &"start_game": SubResource("Animation_suycs")
 }
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_v5dxo"]
+diffuse_texture = ExtResource("39_2t1a5")
+texture_filter = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_dyvha"]
+diffuse_texture = ExtResource("40_8576b")
+texture_filter = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_xc54d"]
+diffuse_texture = ExtResource("39_2t1a5")
+texture_filter = 1
 
 [sub_resource type="LabelSettings" id="LabelSettings_v5dxo"]
 font = ExtResource("7_0yprl")
@@ -986,6 +1089,15 @@ position = Vector2(639.99994, 360)
 scale = Vector2(5, 5.0000005)
 texture = ExtResource("4_yyih5")
 
+[node name="VersionLabel" type="Label" parent="lombard/Table"]
+offset_left = 21.999996
+offset_top = 670.0
+offset_right = 1179.0
+offset_bottom = 832.0
+scale = Vector2(0.2, 0.2)
+text = "Version: 1.0.1"
+label_settings = SubResource("LabelSettings_8576b")
+
 [node name="InventoryButton" type="TextureButton" parent="lombard/Table"]
 anchors_preset = 2
 anchor_top = 1.0
@@ -1010,7 +1122,7 @@ offset_right = 252.2
 offset_bottom = 72.0
 scale = Vector2(0.2, 0.2)
 text = "Inventory"
-label_settings = SubResource("LabelSettings_wuoie")
+label_settings = SubResource("LabelSettings_2t1a5")
 horizontal_alignment = 1
 
 [node name="CollectionButton2" type="TextureButton" parent="lombard/Table"]
@@ -1084,7 +1196,7 @@ texture = SubResource("CanvasTexture_hmewc")
 [node name="Door-bg" type="Sprite2D" parent="lombard/Background"]
 z_index = -1
 texture_filter = 1
-position = Vector2(324, 367)
+position = Vector2(322, 361)
 scale = Vector2(5.0312495, 5.0138884)
 texture = ExtResource("13_elkpi")
 
@@ -1633,12 +1745,25 @@ libraries = {
 
 [node name="sfxplayer" type="AudioStreamPlayer" parent="."]
 
+[node name="VoiceButton" type="TextureButton" parent="."]
+z_index = 20
+offset_left = 1154.0
+offset_top = 9.0
+offset_right = 1208.0
+offset_bottom = 63.0
+toggle_mode = true
+button_pressed = true
+texture_normal = SubResource("CanvasTexture_v5dxo")
+texture_pressed = SubResource("CanvasTexture_dyvha")
+texture_disabled = SubResource("CanvasTexture_xc54d")
+stretch_mode = 0
+
 [node name="TextureButton" type="TextureButton" parent="."]
 z_index = 20
-offset_left = 1212.0
-offset_top = 14.0
-offset_right = 1266.0
-offset_bottom = 68.0
+offset_left = 1217.0
+offset_top = 9.0
+offset_right = 1271.0
+offset_bottom = 63.0
 toggle_mode = true
 button_pressed = true
 texture_normal = SubResource("CanvasTexture_2t1a5")
@@ -1730,4 +1855,5 @@ texture = SubResource("CanvasTexture_iueff")
 [connection signal="button_down" from="DEV/Panel/Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="DEV/Panel/Button2" to="." method="_on_button_2_button_down"]
 [connection signal="button_down" from="DEV/Panel/Button3" to="." method="finish_game"]
+[connection signal="toggled" from="VoiceButton" to="lombard/Character" method="_on_voice_button_toggled"]
 [connection signal="toggled" from="TextureButton" to="." method="_on_texture_button_toggled"]

@@ -26,10 +26,11 @@ func sellItem(id: int) -> void:
 	$"..".playsfx("sell", true)
 	mainnode.updMoney(mainnode.money + $"../lombard/Table/Item".prices[item])
 	$"../collection".updCol()
-	var PIZDEC = CanvasTexture.new()
-	PIZDEC.diffuse_texture = load("res://assets/take_btn.png")
-	PIZDEC.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	$"../lombard/Character/model/chatbox/Take".texture_normal = PIZDEC
+	if not $"../lombard/Character".check_if_can_take():
+		var PIZDEC = CanvasTexture.new()
+		PIZDEC.diffuse_texture = load("res://assets/take_btn.png")
+		PIZDEC.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		$"../lombard/Character/model/chatbox/Take".texture_normal = PIZDEC
 	pass
 	
 func updInv():
@@ -65,6 +66,6 @@ func updInv():
 	pass
 
 func _on_up_btn_1_button_down() -> void:
-	$"../lombard/Character/model/AnimationPlayer".play_backwards("down")
+	$"../SceneAnimator".play_backwards("down")
 	$"..".set_active_track(0)
 	pass # Replace with function body.
