@@ -126,12 +126,6 @@ func updCol():
 		Fin.get_node("Item").texture = item_texture
 		Fin.get_node("Item").visible = true
 		stage_complete = true
-		if stage == 0:
-			$Sprite2D2.visible = true
-		elif stage == 1:
-			$Sprite2D3.visible = true
-		elif stage == 2:
-			$Sprite2D4.visible = true
 	pass
 
 
@@ -147,6 +141,12 @@ func _on_hide_button_down() -> void:
 
 func _on_FIN_button_down() -> void:
 	if stage_complete:
+		if stage == 0:
+			$Sprite2D2.visible = true
+		elif stage == 1:
+			$Sprite2D3.visible = true
+		elif stage == 2:
+			$Sprite2D4.visible = true
 		stage += 1
 		if stage == 3:
 			$"..".anim_player.play_backwards("down_collection")
